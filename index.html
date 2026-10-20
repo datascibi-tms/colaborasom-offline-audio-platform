@@ -1,0 +1,4525 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="wavesurfer.js"></script>
+    <script src="libraries/p5.js"></script>
+      <meta content="width=device-width, initial-scale=1" name="viewport"/>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/round-slider@1.6.1/dist/roundslider.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/round-slider@1.6.1/dist/roundslider.min.js"></script>
+    <script src="https://unpkg.com/wavesurfer.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/5.2.0/wavesurfer.min.js" integrity="sha512-tWJxy7CmJozpHccsOILUSmwyCEpxjJn2pnTGTthMRyrgCD1RRRFMH67I9Hk7AhJB3eqm24RU3vnr9c9W3g3A/A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/wavesurfer.js/5.2.0/plugin/wavesurfer.cursor.min.js" integrity="sha512-Ma6OLLggOzx3taFpWYIvxDTcwFYqYzNGQNWNAy21MDgO+5Ht13WR5tpehE/TJjaFnNgMbg1nHvVJbBw/0t14JA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="Tone.js"></script>
+
+
+    <style>
+
+    html { height:100%; }
+
+    body {
+        height: 100%;
+        width:100%;
+        display:flex;
+        position:fixed;
+        flex-direction: column;
+        min-height: 100vh;
+        padding-top: 0;
+        margin-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        background-color: white;
+    }
+
+  .tes {
+
+  }
+
+  #home {
+    display:flex;
+    position:absolute;
+    flex-direction: column;
+    width:100%;
+    height:100%;
+    background-color: white;
+    z-index: 1;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  #divTrilhaSonora {
+    display:none;
+    position:absolute;
+    flex-direction: column;
+    /* padding-left: 5%;
+    padding-right: 5%; */
+    width:100%;
+    height:88%;
+    background-color: white;
+    z-index: 1;
+    top:11%;
+    align-items: flex-start;
+    border:2px solid black;
+  }
+
+  #divTopMenuTrilha {
+    display:flex;
+    width:100%;
+    height: 10%;
+  }
+
+    #trilhaMenu {
+      display:flex;
+      height:100%;
+      width:92%;
+      left:0;
+      justify-content: center;
+    }
+
+    #fechaTrilha {
+      display:flex;
+      width:8%;
+      height: 10%;
+    }
+
+
+  #videoMenu {
+    display:flex;
+    height:100%;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #videoBase {
+    align-items: flex-end;
+    display:flex;
+    width:100%;
+    height:100%;
+    }
+
+  #divMovieGaleriaTrilhas{
+    display:flex;
+    flex-direction: row;
+    max-height: 78%;
+    width: 100%;
+  }
+
+  #divMovie {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height:100%;
+    width: 60%;
+  }
+
+ #divTrilhaGaleria {
+   display:flex;
+   flex-direction: row;
+   width:39%;
+   height: 100%;
+   background-color: white;
+   justify-content: space-around;
+   max-height: 100%;
+   max-width: 80%;
+   flex-wrap: wrap;
+   overflow-y: scroll;
+ }
+
+  #transportMovie {
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    height: 12%;
+    justify-content: space-around;
+    background-color: #9BDCF7;
+    align-items: center;
+
+  }
+
+
+#gravaTrilhaBtn {
+ display:flex;
+ background-color: red;
+}
+
+#divTituloHome {
+  display:flex;
+  height: 8%;
+  width:100%;
+  justify-content: center;
+
+}
+
+  #homeTitulo {
+  display:flex;
+  font-size: 400%;
+  padding-bottom: 0;
+  padding-top: 5%;
+  color: #012b78;
+  }
+
+  #divIconHome {
+    display:flex;
+    flex-direction: row;
+    height: 90%;
+    width:100%;
+    justify-content:space-around;
+    align-items: center;
+    padding-top: 2%;
+
+  }
+
+  #homeIcon {
+    display:flex;
+    width:27%;
+    height:75%;
+
+  }
+
+  #homeIconTop {
+    display:flex;
+    width:90%;
+    height:90%;
+  }
+
+  .artContainers {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:25%;
+    height: 50%;
+    color:black;
+  }
+
+  .tituloArts {
+  Display:flex;
+  width:60%;
+  height: 10%;
+  align-self: center;
+  justify-content: center;
+  color: black;
+  font-size: 20px;
+  }
+
+
+  .arts {
+    position:relative;
+    bottom:0;
+    left:45%;
+    font-size: 40px;
+  }
+
+  .artImgs {
+    display:none;
+    width:90%;
+    height: 90%;
+  }
+
+  /* #enterSiteDiv {
+    display:flex;
+    width:60%;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+    padding-left: 30%;
+    padding-right: 30%;
+  } */
+
+  #enterSiteUp {
+    display:flex;
+    width:100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 50%;
+    background: url(imgs/corrimao-tapetesBig.png) no-repeat;
+  }
+
+  #enterSiteDown {
+    display:flex;
+    right:50px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 50%;
+    background: url(imgs/mesa-tapetesBig.png) no-repeat;
+  }
+
+
+
+  #top {
+    height:15%;
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #9BDCF7;
+    min-height: 10%;
+  }
+
+  .topButtons {
+    display:flex;
+    width:1%;
+    height:100%;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 50%;
+    border: 0;
+
+  }
+
+  .topButtons:active {
+            transform: scale(0.85);
+        }
+
+   a {
+     display:flex;
+     color:black;
+     font-size: 20px;
+   }
+
+
+  #metroImg {
+    display:flex;
+    height:80%;
+  }
+
+#numeroClientes {
+  display:none;
+  width:35%;
+  height:35%;
+  color: black;
+  border-radius: 50%;
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+
+}
+
+   #meio {
+     display:flex;
+     width:100%;
+     padding-top: 0;
+     margin-top: 0;
+     min-height: 100%;
+     background-color: white;
+   }
+
+   .canaisDiv {
+     display:flex;
+     width:100%;
+     height:100%;
+     flex-direction: column;
+     justify-content: flex-start;
+
+   }
+
+   #canaisDiv1 {
+     display:none;
+     width:100%;
+     height:100%;
+     flex-direction: column;
+     align-items: center;
+
+   }
+
+   #canaisDiv2 {
+     display:flex;
+     width:100%;
+     height:100%;
+     flex-direction: column;
+     justify-content: flex-start;
+
+   }
+
+    .cDivUp {
+      display:flex;
+      height:30%;
+      width:100%;
+      flex-direction: row;
+      justify-content:space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      /* background-color: white; */
+      margin-bottom: 0;
+      min-height: 33%;
+
+    }
+
+  .cDivDown {
+    display:flex;
+    width:100%;
+    height:30%;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* background-color: white; */
+    min-height: 33%;
+  }
+
+
+    #galeriaClientes {
+      display:none;
+      flex-direction: column;
+      top: 20%;
+      width:70%;
+      right: 10%;
+      height:70%;
+      background-color: white;
+      z-index: 0;
+      border:2px solid black;
+      padding-bottom: 0;
+    }
+
+    #galeriaClienteGravinas {
+      display:none;
+      flex-direction: column;
+      top: 20%;
+      width:70%;
+      right: 10%;
+      height:70%;
+      background-color: coral;
+      z-index:0;
+      border:2px solid black;
+      padding-bottom: 0;
+    }
+
+  #footer {
+    display:flex;
+    flex-direction: row;
+    background-color: white ;
+    height:85%;
+    max-width:100%;
+    overflow-y: scroll;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap:wrap;
+
+  }
+
+  #gravinas {
+    display:flex;
+    flex-direction: row;
+    background-color: lightBlue ;
+    height:100%;
+    max-width:100%;
+    overflow-y: scroll;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap:wrap;
+
+  }
+
+  #clienteMenuCriações {
+    display:none;
+    flex-direction: row;
+    background-color: lightBlue ;
+    height:80%;
+    max-width:100%;
+    overflow-y: scroll;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap:wrap;
+
+  }
+
+.divMenuTop {
+  display:flex;
+  justify-content: center;
+  flex-direction: row;
+  width:100%;
+  height:15%;
+  background-color: white;
+  padding-bottom: 0;
+}
+
+
+
+.titulos {
+  display:flex;
+  font-size: 20px;
+  height:100%;
+  width:50%;
+}
+
+.titulosJanelas {
+  display:flex;
+  font-size: 20px;
+  align-self: center;
+  justify-content: center;
+}
+
+.divBcliente {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width:13%;
+  height:22%;
+}
+
+
+.clienteMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightBlue;
+  justify-content:flex-end;
+  width:100%;
+  height:75%;
+}
+
+
+#clMenuDownDiv {
+  display:flex;
+  flex-direction: row;
+  width:100%;
+  height:15%;
+  background-color: lightBlue;
+
+}
+
+.clMenuDownBots {
+  display:flex;
+  width: 34%;
+  height:100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #27afc4;
+  border:2px solid black;
+  font-size: 15px;
+
+}
+
+.clMenuDownBots:active {
+            transform: scale(0.95);
+}
+
+
+.fechadorJanelas {
+  display:flex;
+  position:absolute;
+  width:10%;
+  height: 15%;
+  right: 0;
+  top: 0;
+  background-color: red;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconFechaJanelas {
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width:100%;
+  height:100%;
+}
+
+
+.botClientes {
+  display:flex;
+  width:80%;
+  height:80%;
+  border-radius: 50%;
+}
+
+
+
+.botClientes:active {
+          transform: scale(0.85);
+      }
+
+/* div que contem o botão do cliente gravação com avatar e o div com nome e audio */
+  .bDivGravina {
+    display:flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: center;
+    width:28%;
+    height:20%;
+  }
+
+.botClientesGravinas {
+  display:flex;
+  width:30%;
+  height:100%;
+  border-radius: 50%;
+}
+
+
+
+
+.clAudDiv {
+  display:flex;
+  flex-direction: column;
+  width:70%;
+  height:100%;
+}
+
+.audGravinas {
+  display:flex;
+  width:100%;
+  height:60%;
+}
+
+.nomeGravina {
+  display:flex;
+  flex-direction: row;
+  width:100%;
+  height:30%;
+  justify-content: center;
+
+}
+
+.bDelGravina {
+  display:flex;
+  align-self: flex-end;
+}
+
+.imageIconsGravinas {
+  display:flex;
+  width:90%;
+  height:90%;
+
+}
+
+.clienteMenuGravinas {
+  display:flex;
+  width:100%;
+  height:80%;
+  font-size: 15px;
+  background-color: lightgreen;
+
+}
+
+#iconsDiv {
+  flex-direction: column;
+  top: 20%;
+  right: 10%;
+  background-color: white;
+  display:flex;
+  width:60%;
+  height:70%;
+  padding-left:0;
+  padding-right: 0;
+
+  padding-bottom: 10px;
+  align-self: start;
+  flex-wrap: wrap;
+
+}
+
+.imageIcons {
+  display: flex;
+  width: 90%;
+  height:90%;
+  border-radius: 50%;
+}
+
+.imageIcons:active {
+          transform: scale(0.85);
+      }
+
+
+.nome {
+  display:flex;
+  color: black;
+  font-size: 15px;
+  align-self: center;
+  justify-content:space-between;
+  align-items: flex-start;
+
+}
+
+  .gctop {
+    display:flex;
+    width: 100%;
+    height: 10%;
+    flex-direction: row;
+
+  }
+
+  #clientIconGaleria {
+    display:none;
+    flex-direction: column;
+    top: 20%;
+    width:70%;
+    right: 10%;
+    height:70%;
+    background-color: white;
+    padding-left: 0;
+    padding-right: 0;
+    border:4px solid black;
+    align-items: center;
+}
+
+ #iconsDiv {
+   display:flex;
+   width: 90%;
+   height: 70%;
+   background-color: white;
+   justify-content: space-between;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 5%;
+   padding-bottom: 10px;
+   align-self: center;
+ }
+
+  #galeriaCriacoes {
+    display:none;
+    flex-direction: column;
+    top: 10.9%;
+    width:100%;
+    right: 0%;
+    height:77%;
+    background-color: white;
+    z-index: 0;
+    border-left: 5px;
+    border:4px solid black;
+  }
+
+.divCriacao {
+  display:flex;
+  flex-direction: row;
+  width: 38%;
+  height: 25%;
+  background-color: lightBlue;
+}
+
+.botCriacao {
+  display:flex;
+  width:30%;
+  height:100%;
+}
+
+  .menuAudios {
+    display:none;
+    position:relative;
+    flex-direction: row;
+    align-items: center;
+    height: 50%;
+    background-color: lightBlue;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width:100%;
+    overflow-y: scroll;
+
+  }
+
+
+  .icons {
+    display:flex;
+    width:10%;
+    height:20%;
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  .icons:active {
+    transform: scale(0.85);
+  }
+
+  .iconCliente {
+    display:flex;
+    width:90%;
+    height:80%;
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  .iconCliente:active {
+    transform: scale(0.85);
+  }
+
+  #audioCombo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width:100%;
+    height: 80%;
+    background-color: white;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width:100%;
+    overflow-y: scroll;
+
+  }
+
+  .usDiv {
+     padding-left: 1%;
+     padding-right: 1%;
+     padding-top: 1%;
+     padding-bottom: 1%;
+     display: flex;
+     width:20%;
+     height:38%;
+     flex-direction: column;
+     background-color:white;
+
+     }
+
+
+   #capaUsDiv {
+     display:flex;
+     flex-direction: row;
+     height:40%;
+     width:100%;
+   }
+
+    .usTrilhaDiv {
+      padding-left: 1%;
+      padding-right: 1%;
+      padding-top: 1%;
+      padding-bottom: 1%;
+      display: flex;
+      width:40%;
+      height:10%;
+      flex-direction: column;
+      background-color:white;
+    }
+
+
+  .capaUsTrilhaDiv {
+    display:flex;
+    flex-direction: row;
+    height:100%;
+    width:100%;
+  }
+
+  .capaUsCriacao {
+    display:flex;
+    flex-direction: column;
+    height:100%;
+    width:80%;
+  }
+
+  .capaUsCriacaotop {
+    display:flex;
+    flex-direction: row;
+    height:40%;
+    width:100%;
+    justify-content: space-between;
+  }
+
+  .usBot {
+    display:flex;
+    width:80%;
+    height:100%;
+    align-items: center;
+    font-size: 80%;
+  }
+
+  .bDel {
+    display:flex;
+    justify-content: center;
+    width:20%;
+    height:100%;
+    background-color: lightBlue;
+    font-size: 10px;
+  }
+
+  .bDelCria {
+    display:flex;
+    justify-content: center;
+    width:20%;
+    height:100%;
+    background-color: lightBlue;
+    font-size: 10px;
+  }
+
+  .audUser {
+    display:flex;
+    width:100%;
+    height:60%;
+  }
+
+  .audCria {
+    display:flex;
+    width:70%;
+    height:60%;
+  }
+
+  .audTUser {
+    display:flex;
+    width:100%;
+    height:60%;
+  }
+
+  #blobWave {
+    position:relative;
+    width: 100%;
+    height:50%;
+  }
+
+
+
+
+  .userExBots {
+   display: flex;
+   height:100%;
+   width:80%;
+  }
+
+   .usExDiv {
+        display: flex;
+        background-color: white;
+        width:20%;
+        height:25%;
+        flex-direction: column;
+    }
+
+    #capaUsExDiv {
+      display:flex;
+      flex-direction: row;
+      height:50%;
+      width:100%;
+    }
+
+
+  .userBots {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: 30%;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+.userBots:active {
+  transform:scale(0.85);
+}
+
+  .canalCont {
+    display:flex;
+    flex-direction: column;
+    width:12%;
+    height:80%;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+  }
+
+ h1 {
+   display:flex;
+   font-size: 90%;
+   color: black;
+   align-self: center;
+ }
+
+ .menus {
+   display:flex;
+   width:100%;
+   height:15%;
+   align-items: center;
+ }
+
+ .playBots {
+   display:flex;
+   width:100%;
+   height:50%;
+   background-color: #678EFA;
+   color:black;
+   align-items: center;
+   justify-content: center;
+   font-size:200%;
+   touch-action: manipulation;
+ }
+
+
+.sliders {
+  display:flex;
+  width:100%;
+  height:10%;
+}
+
+#metroDiv {
+  position: absolute;
+  top: 32%;
+  left:40%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display:none;
+  width:10%;
+  height:35%;
+  background-color: black;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
+}
+
+#metroH1 {
+  display:flex;
+  color: white;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 12px;
+
+}
+
+#metroOnOffBot {
+  display:flex;
+  width:100%;
+  height:20%;
+  justify-content: center;
+  border:1px solid black;
+}
+
+#metroOnOffBot:active {
+  transform:scale(0.85);
+}
+
+#metroSld {
+  padding-top: 0;
+  display:flex;
+  align-self: center;
+  width:100%;
+  height:80%;
+}
+
+#transportContainer {
+ display:flex;
+ position:absolute;
+ bottom: 0;
+ flex-direction: row;
+ background-color: #86D6F9;
+ width:90%;
+ justify-content:space-between;
+ height:10%;
+ padding-left: 5%;
+ padding-right: 6%;
+ min-height: 10%;
+ padding-top: 10px;
+
+}
+
+.transportButtons {
+display:flex;
+width:5%;
+height:90%;
+align-items: center;
+justify-content: space-around;
+border-radius: 50%;
+border: 3px;
+border-color: black;
+}
+
+.transportButtons :active {
+  transform: scale(0.85);
+}
+
+
+/* Transport Bar */
+#criaUserBot {
+background-color: white;
+}
+
+#criaUserBot:active {
+transform:scale(0.85);
+
+}
+
+#salvaSessao {
+display:flex;
+}
+
+#salvaSessao:active {
+transform:scale(0.85);
+
+}
+
+#recordBtn {
+display:flex;
+background-color: red;
+}
+
+#recordBtn:active {
+ transform: scale(0.70);
+}
+
+#salvaRecordBtn: {
+background-color: white;
+}
+
+#salvaRecordBtn:active {
+ transform: scale(0.85);
+
+}
+
+
+#formDiv {
+ display:none;
+}
+
+#uploadButton {
+ display:flex;
+ background-color: #a8a1f7;
+}
+
+#uploadButton:active {
+ transform: scale(0.85);
+
+}
+
+#chat {
+ display:none;
+ flex-direction: column;
+ top: 20%;
+ width:70%;
+ right: 10%;
+ height:70%;
+ background-color: white;
+ z-index: 0;
+ border:4px solid black;
+
+}
+
+#msnBox {
+ display:flex;
+ width:100%;
+ height:100%;
+ max-height:80%;
+ overflow-y: scroll;
+ flex-direction: column;
+ background-color: white;
+}
+
+
+#divChatMsn {
+display: flex;
+height:15%;
+width:100%;
+max-width: 90%;
+background-color:white;
+flex-direction: column;
+}
+
+#dateAndTime {
+display: flex;
+font-size: 15px;
+}
+
+#nomeAndMsn {
+display:flex;
+font-size: 25px;
+}
+
+
+
+
+h2 {
+display:flex;
+}
+
+
+.bsendMsn {
+display:flex;
+width:10%;
+height:100%;
+align-items: center;
+justify-content:
+}
+
+.sendIcon {
+  display:flex;
+  width:100%;
+  height:100%;
+  justify-content: center;
+}
+
+   #divMsn {
+     display:flex;
+     flex-direction: row;
+     width:100%;
+     height:13%;
+
+   }
+
+   #textArea {
+     font-size: 17px;
+     width:80%;
+   }
+
+   #userMsn {
+     display: flex;
+     width:100%;
+     height:100%;
+     font-size: 25px;
+     max-width: 100%;
+   }
+
+
+
+/* This is a single-line comment ////////////////////////////////tela cel 416 x 760px////////////////////////////////////////*/
+   /* @media screen and (max-width: 416px) { */
+   @media screen and (max-width: 416px) {
+     html {
+       height:100%;
+       width:100%;
+     }
+
+     body {
+         position:fixed;
+         display:flex;
+         width:100%;
+         height:100%;
+         flex-direction: column;
+         min-height: 100vh;
+         background-color: white;
+         margin-left: 0;
+         margin-right: 0;
+         margin-bottom: 0;
+         justify-content: flex-start;
+
+     }
+
+      #top {
+        display:flex;
+        width:100%;
+        flex-direction: row;
+        min-height: 7.5%;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        align-self: flex-start;
+
+      }
+
+      .topButtons {
+        display:flex;
+        width:15%;
+        height:100%;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 50%;
+
+
+      }
+
+
+      .topButtons:active {
+                transform: scale(0.85);
+            }
+
+      #home {
+        display:flex;
+        position:absolute;
+        top:0;
+        flex-direction: column;
+        width:100%;
+        height:100%;
+        background-color: white;
+        z-index: 1;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      #divTrilhaSonora {
+        display:none;
+        position:absolute;
+        flex-direction: column;
+        /* padding-left: 5%;
+        padding-right: 5%; */
+        width:100%;
+        height:85%;
+        background-color: white;
+        z-index: 1;
+        top:8%;
+        align-items:flex-start;
+        border:2px solid black;
+      }
+
+      #divTopMenuTrilha {
+        display:flex;
+        width:100%;
+        height: 10%;
+      }
+
+        #trilhaMenu {
+          display:flex;
+          height:100%;
+          width:85%;
+          left:0;
+          justify-content: center;
+        }
+
+        #fechaTrilha {
+          display:flex;
+          width:15%;
+          height: 10%;
+        }
+
+      #divMovie {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        height:80%;
+        width: 80%;
+
+      }
+
+      #transportMovie {
+        display:flex;
+        flex-direction: row;
+        width:100%;
+        height: 12%;
+        bottom:5%;
+        justify-content: space-around;
+        background-color: #9BDCF7;
+        align-items: center;
+
+      }
+
+
+    #gravaTrilhaBtn {
+     display:flex;
+     background-color: red;
+    }
+
+      #videoMenu {
+        display:flex;
+        height:100%;
+        width:100%;
+        align-items: center;
+        justify-content: center;
+      }
+
+
+
+      #videoBase {
+        display:flex;
+        position: relative;
+        width:100%;
+        height:100%;
+        align-self: flex-start;
+        }
+
+
+      #divTituloHome {
+        display:flex;
+        height: 10%;
+        width:100%;
+        justify-content: center;
+      }
+
+      #homeTitulo {
+      display:flex;
+      font-size: 50px;
+      bottom: 40%;
+      }
+
+      #divIconHome {
+        display: flex;
+        flex-direction: column;
+        padding-top: 0;
+        display:flex;
+        height: 80%;
+        width:95%;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 5%;
+
+      }
+
+
+      #homeIcon {
+        display:flex;
+        width:60%;
+        height:30%;
+      }
+
+/*
+      #enterSiteDiv {
+        display:flex;
+        width:90%;
+        height: 25%;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+
+
+      } */
+
+
+
+      #enterSiteUp {
+        display:flex;
+        width: 60%;
+        height: 55%;
+        background-color: blue;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        border-radius: 50%;
+        background: url(imgs/corrimao-tapetesSmall.png) no-repeat;
+      }
+
+      #enterSiteDown {
+        display:flex;
+        width: 60%;
+        height: 55%;
+        background-color: blue;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        border-radius: 50%;
+          background: url(imgs/mesa-tapetesSmall.png) no-repeat;
+
+      }
+
+      .artContainers {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width:85%;
+        height: 50%;
+        color:black;
+      }
+
+      .tituloArts {
+      Display:flex;
+      width:60%;
+      height: 10%;
+      align-self: center;
+      justify-content: center;
+      color: black;
+      font-size: 20px;
+      }
+
+
+      .arts {
+        position:relative;
+        bottom:0;
+        left:45%;
+        font-size: 40px;
+      }
+
+      .artImgs {
+        display:none;
+        width:90%;
+        height: 90%;
+      }
+
+
+      #galerias {
+        display:none;
+        top: 20%;
+        width:80%;
+        left: 10%;
+        height:60%;
+        margin-left: 3px;
+        margin-right: 3px;
+        background-color: white;
+        z-index: 0;
+        border:2px solid black;
+
+      }
+
+      .titulos {
+        padding-top: 15px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      #titulosCriadores {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .divMenuTop {
+        display:flex;
+        justify-content: center;
+        flex-direction: row;
+        width:100%;
+        height:12%;
+        background-color: white;
+        padding-bottom: 0;
+      }
+
+  #galeriaClientes {
+    display:none;
+    left : 0;
+    top : 8%;
+    padding-left: 0;
+    padding-right:0;
+    padding-bottom: 0;
+    padding-top: 0;
+    width:101%;
+    height:75%;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    border:1px solid black;
+  }
+
+  #galeriaClienteGravinas {
+    display:none;
+    left : 0;
+    top : 9%;
+    padding-left: 0;
+    padding-right:0;
+    padding-bottom: 0;
+    padding-top: 5px;
+    width:100%;
+    height:70%;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    border:2px solid black;
+  }
+
+ #trilhaMenu {
+   display:flex;
+   height:103%;
+ }
+
+
+
+  #divMovieGaleriaTrilhas{
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+
+  #divMovie {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height:60%;
+    width: 100%;
+  }
+
+ #divTrilhaGaleria {
+   display:flex;
+   flex-direction: row;
+   height: 39%;
+   width:99%;
+   background-color: white;
+   justify-content: space-between;
+   max-height: 100%;
+   max-width: 95%;
+   overflow-y: scroll;
+   flex-wrap: wrap;
+ }
+
+ .usTrilhaDiv {
+   padding-left: 1%;
+   padding-right: 1%;
+   padding-top: 1%;
+   padding-bottom: 1%;
+   display: flex;
+   width:43%;
+   height:20%;
+   flex-direction: column;
+   background-color:white;
+ }
+
+
+.capaUsTrilhaDiv {
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+ display:flex;
+ flex-direction: row;
+ height:100%;
+ width:100%;
+ background-color: white;
+}
+
+  #gravinas {
+    align-items: flex-start;
+    display:flex;
+    flex-direction: row;
+    background-color: white;
+    height:85%;
+    width:100%;
+    overflow-y: scroll;
+    justify-content: space-around;
+    flex-wrap:wrap;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+
+
+  .bDivGravina {
+    padding:3px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    display:flex;
+    width:80%;
+    height:25%;
+  }
+
+
+  .botClientesGravinas {
+    display:flex;
+    width:23%;
+    height:80%;
+    border-radius: 50%;
+  }
+
+  .clAudDiv {
+    display:flex;
+    flex-direction: column;
+    width:75%;
+    height:100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nomeGravina {
+    display:flex;
+    align-self: flex-start;
+    font-size: 20px;
+    width:100%;
+    height:25%;
+    align-items: flex-start;
+    justify-content:flex-end;
+
+  }
+
+  .audGravinas {
+    display:flex;
+    width:100%;
+    height:60%;
+  }
+
+  .bDelGravina {
+    display:flex;
+    width:20%;
+    height:100%;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+ #clientIconGaleria {
+   display:none;
+   left : 0;
+   top : 8%;
+   padding-left: 0;
+   padding-right:0;
+   padding-bottom: 0;
+   padding-top: 0;
+   flex-direction: column;
+   width:101%;
+   height:75%;
+   background-color: white;
+   padding-left: 0;
+   padding-right: 0;
+   border:1px solid black;
+   align-items: center;
+
+    }
+
+    #iconsDiv {
+      flex-direction: column;
+      display:flex;
+      width:100%;
+      height: 75%;
+      overflow-y: 60%;
+      background-color: white;
+      padding-left:0;
+      padding-right: 0;
+      padding-bottom: 10px;
+      align-self: center;
+      flex-wrap: wrap;
+
+    }
+
+    .icons {
+      display:flex;
+      width:25%;
+      height:20%;
+      background-color: white;
+      border-radius: 50%;
+    }
+
+    .icons:active {
+      transform: scale(0.85);
+    }
+
+      #galeriaCriacoes {
+        display:none;
+        left : 0;
+        top : 8%;
+        padding-left: 0;
+        padding-right:0;
+        padding-bottom: 0;
+        padding-top: 0;
+        flex-direction: column;
+        width:101%;
+        height:75%;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: white;
+        padding-left: 0;
+        padding-right:0;
+        padding-bottom: 0;
+        padding-top: 0;
+        border:1px solid black;
+      }
+
+
+      #audioCombo {
+        display:flex;
+        width:100%;
+        height:85%;
+      }
+
+      .fechadorJanelas {
+        display:flex;
+        position:absolute;
+        width:18%;
+        height: 12%;
+        right: 0;
+        top: 0;
+        background-color: red;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+
+
+      #footer {
+        display:flex;
+        flex-direction: row;
+        background-color: white;
+        height:85%;
+        width:100%;
+        overflow-y: scroll;
+        justify-content: space-around;
+        flex-wrap:wrap;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 1%;
+        padding-right: 1%;
+      }
+
+      .clienteMenu {
+        display: flex;
+        align-items: center;
+        justify-content:flex-end;
+        position: relative;
+        flex-grow: 1;
+        background-color: lightBlue;
+        width:100%;
+        height:40%;
+      }
+
+      .divBcliente {
+      display:flex;
+      width:40%;
+      height:25%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .botClientes {
+      display:flex;
+      flex-direction: column;
+      width:70%;
+      height:70%;
+      border-radius: 50%;
+      align-items: center;
+    }
+
+  .clienteMenuGravinas {
+    display:flex;
+    flex-direction: column;
+    background-color: coral;
+    width:100%;
+    height:100%;
+  }
+
+    .imageIcons {
+      display:flex;
+      width:100%;
+      height:100%;
+    }
+
+    .nome {
+      display:flex;
+      align-self: center;
+      font-size: 20px;
+      align-items: flex-start;
+
+    }
+
+      .usDiv {
+           display: flex;
+           width:40%;
+           height:25%;
+           flex-direction: column;
+           background-color:white;
+         }
+
+      #capaUsDiv {
+        display:flex;
+        flex-direction: row;
+        height:50%;
+        width:100%;
+      }
+
+      .usBot {
+        display:flex;
+        width:80%;
+        height:100%;
+      }
+
+      .audUser {
+        display:flex;
+        width:100%;
+        height:50%;
+      }
+
+      .bDel {
+        display:flex;
+        width:35%;
+        height:100%;
+        background-color: lightBlue;
+      }
+
+      .userExBots {
+       display: flex;
+       height:18%;
+       width:40%;
+      }
+
+       .usExDiv {
+         display: flex;
+         width:40%;
+         height:25%;
+         flex-direction: column;
+         background-color:white;
+        }
+
+        #capaUsExDiv {
+          display:flex;
+          flex-direction: row;
+          height:100%;
+          width:100%;
+        }
+
+
+
+      .userBots {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        height: 25%;
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
+
+      #meio {
+        display:flex;
+        width:100%;
+        min-height: 108%;
+        padding-top: 0;
+        margin-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        justify-content: flex-end;
+      }
+
+
+   a {
+     font-size: 130%;
+   }
+
+      h1 {
+        display:flex;
+        font-size: 110%;
+        color: black;
+        align-self: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        justify-content: flex-start;
+      }
+
+      .playBots {
+        display:flex;
+        width:100%;
+        height:70%;
+        background-color: #678EFA;
+        color:black;
+        align-items: center;
+        justify-content: center;
+        font-size:160%;
+        touch-action: manipulation;
+        margin: 3px;
+        padding:3px;
+      }
+
+
+      .canalCont {
+        display:flex;
+        flex-direction: column;
+        width:25%;
+        height: 45%;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: white;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      .canaisDiv {
+        display:flex;
+        width:100%;
+        height:100%;
+        flex-direction: column;
+        justify-content: flex-start;
+
+      }
+
+      #canaisDiv1 {
+        display:none;
+        width:100%;
+        height:100%;
+        flex-direction: column;
+        align-items: center;
+
+      }
+
+      #canaisDiv2 {
+        display:flex;
+        width:100%;
+        height:100%;
+        flex-direction: column;
+        justify-content: flex-start;
+
+      }
+
+      #cDivUp {
+        display:flex;
+        width:100%;
+        height: 50%;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        background-color: white;
+        min-height: 45%;
+
+      }
+
+      #cDivDown {
+        display:flex;
+        width:100%;
+        height: 50%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        background-color: white;
+        min-height: 45%;
+      }
+
+      #transportContainer {
+        display:absolute;
+        bottom: 5%;
+        flex-direction: row;
+        background-color: lightBlue;
+        width:97%;
+        height: 5%;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 0;
+        padding-top: 15px;
+        margin-right: 0;
+        padding-right: 2%;
+        padding-left: 2%;
+      }
+
+      #metroDiv {
+        padding-top: 7px;
+        padding-right: 4px;
+        padding-left: 4px;
+        display:none;
+        width:30%;
+        height:25%;
+        background-color: black;
+        top:40%;
+        left:35%;
+        justify-content: space-between;
+
+      }
+
+      #metroH1 {
+        display:flex;
+        color:white;
+        align-items: center;
+      }
+
+      #metroOnOffBot {
+        display:flex;
+        width:100%;
+        height:23%;
+        justify-content: center;
+        align-items: center;
+        border:4px solid black;
+      }
+
+      #metroSld {
+        display:flex;
+        align-self: center;
+        width:100%;
+        height:70%;
+      }
+
+
+      .transportButtons {
+        display: flex;
+        width: 15%;
+        height: 80%;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 50%;
+
+      }
+
+      #chat {
+        display:none;
+        left : 0;
+        top : 8%;
+        padding-left: 0;
+        padding-right:0;
+        padding-bottom: 0;
+        padding-top: 0;
+        flex-direction: column;
+        width:101%;
+        height:75%;
+        align-items: center;
+        background-color: white;
+        border:1px solid black;
+      }
+
+      #divMsn {
+        align-self: stretch;
+        display:flex;
+        width:100%;
+        height:13%;
+        background-color: lightBlue;
+
+
+      }
+
+      #msnBox {
+        display:flex;
+        width: 100%;
+        height:100%;
+      }
+
+      #textArea {
+        display:flex;
+        width:85%;
+        height:90%;
+
+      }
+
+      #bsend {
+        display:flex;
+        width:15%;
+        height:100%;
+
+      }
+
+   }
+
+ @media screen and (orientation:landscape) and (min-width: 620px) {
+
+         #top {
+           display:flex;
+           width:100%;
+           flex-direction: row;
+           min-height:10%;
+           padding-top: 3px;
+           padding-bottom: 3px;
+           align-self: flex-start;
+
+         }
+
+         .topButtons {
+           display:flex;
+           width:8%;
+           height:100%;
+           align-items: center;
+           justify-content: space-around;
+           border-radius: 50%;
+         }
+
+
+         .topButtons:active {
+                   transform: scale(0.85);
+               }
+
+ }
+
+
+
+</style>
+<html>
+
+<body>
+  <div id="home" >
+      <div id="divTituloHome">
+        <h1 id="homeTitulo">Colaborasom</h1>
+      </div>
+      <div id="divIconHome">
+        <div id="art1Container" class="artContainers">
+          <h1 class="tituloArts">Corrimão e Tapetes</h1>
+          <button class="enterSite" id="enterSiteUp" onclick="showArt1()">
+          </button>
+        </div>
+
+        <img id="homeIcon" src="imgs/homeIcon4.png"></img>
+        <div id="art2Container" class=artContainers>
+          <button class="enterSite"  id="enterSiteDown" onclick="showArt2()">
+          </button>
+          <h1 class="tituloArts">Mesa e Tapetes</h1>
+         </div>
+      </div>
+      <!-- <div id="enterSiteDiv">
+
+
+      </div> -->
+  </div>
+  <div id="top">
+        <button id="divTeste2" class ="topButtons" onclick="showHome()" >
+          <ion-icon name="home-sharp" size="large"></ion-icon>
+        </button>
+        <!-- <button id="botGaleriaSessões" class ="topButtons" onclick="showSessões()" >
+          <ion-icon name="color-filter-outlin e" size="large"></ion-icon>
+        </button> -->
+        <button id="botGaleriaClientes" class ="topButtons" onclick= "showClientes()">
+          <ion-icon name="people-sharp"size="large"></ion-icon><span id="numeroClientes" ></span>
+        </button>
+        <button id="botChat" class ="topButtons" onclick= "showdivChat()">
+          <ion-icon  name="chatbubble-ellipses-sharp" size="large"></ion-icon>
+        </button>
+        <button id="divCriasom" class ="topButtons" onclick="showGravinas()" >
+          <ion-icon name="musical-notes-sharp"size="large"></ion-icon>
+        </button>
+        <button id="divTeste" class ="topButtons" onclick="showDivIcons()" >
+          <ion-icon name="flower-outline" size = "large"></ion-icon>
+        </button>
+        <button id="botTrilhaSonora" class ="topButtons" onclick="showDivTrilhaSonora()" >
+          <ion-icon name="film-sharp" size="large"></ion-icon>
+        </button>
+
+  </div>
+  <div id="divTrilhaSonora" class="auxJanelas">
+    <div id=divTopMenuTrilha>
+      <div id = "trilhaMenu">
+        <select name="videos" id="videoMenu" class="menusVideo" onchange="trocaVideo()">
+          <option value="praia" selected="selected" class = "options">Praia</option>
+          <option value="rua"  class="options">Rua</option>
+          <option value="skate" class="options">Skate</option>
+        </select>
+
+        <button class="fechadorJanelas" id="fechaTrilha" onclick="tiraDivTrilha()">
+            <img class = "iconFechaJanelas"  src="imgs/icons/back.png"></img>
+        </button>
+     </div>
+
+  </div>
+  <div id="divMovieGaleriaTrilhas">
+        <div id="divMovie">
+          <video id ="videoBase" controls>
+            <source src="videos/praia.webm" type="video/webm">
+              Your browser does not support the video tag.
+            </source>
+          </video>
+        </div>
+        <div id="divTrilhaGaleria"></div>
+      </div>
+  <div id="transportMovie">
+      <button id="playTrilhaBtn" class ="transportButtons" onclick=playTrilhaMaster()>
+        <ion-icon name="play" size="large"></ion-icon>
+      </button>
+      <button id="gravaTrilhaBtn" class="transportButtons" onclick="gravaTrilha()">
+        <ion-icon name="recording-sharp" size="large"></ion-icon>
+      </button>
+      <button id="ParaTrilhaBtn" class="transportButtons" onclick="stopVideo()">
+        <ion-icon name="stop-sharp" size="large"></ion-icon>
+      </button>
+      <button id="showTrilhaServBot" class ="transportButtons" onclick="showTrilhaServ()" >
+        <img src="imgs/icons/metronome.png" id="metroImg"></img>
+      </button>
+    </div>
+  </div>
+
+  <div id="meio">
+    <div id="canaisDiv1" class="canaisDiv">
+          <div class="cDivUp">
+            <div id="canalCont1" class="canalCont">
+              <!-- Canais 1, 2, 3 e 4 -->
+              <h1 id="nomeCanal1">Canal 1</h1>
+              <select name="sons" id="menu1" onchange="trocaSom1()" class="menus">
+               <option value="BassC3">Baixo C3</option>
+               <option value="BassF3">Baixo F3</option>
+               <option value="BassG3">Baixo G3</option>
+               <option value="Bumbo" selected="selected">Bumbo</option>
+               <option value="Caixa" >Caixa</option>
+               <option value="Cajon">Cajon</option>
+               <option value="Crash">Crash</option>
+               <option value="Guitarra-PcC">Guitarra C</option>
+               <option value="Guitarra-PcF">Guitarra F</option>
+               <option value="Guitarra-PcG">Guitarra G</option>
+               <option value="HiHat">HiHat</option>
+               <option value="PianoC">Piano C maior</option>
+               <option value="PianoD">Piano D maior</option>
+               <option value="PianoEm">Piano E menor</option>
+               <option value="PianoF">Piano F maior</option>
+               <option value="PianoG">Piano G maior</option>
+               <option value="PianoBm">Piano B menor</option>
+               <option value="PianoC3">Piano C3</option>
+               <option value="PianoD3">Piano D3</option>
+               <option value="PianoE3">Piano E3</option>
+               <option value="PianoF3">Piano F3</option>
+               <option value="PianoF#3">Piano F#3</option>
+               <option value="PianoG3">Piano G3</option>
+               <option value="PianoA3">Piano A3</option>
+               <option value="PianoB3">Piano B3</option>
+               <option value="Ride">Ride</option>
+               <option value="SurdoA">Surdo Agudo</option>
+               <option value="SurdoG">Surdo Grave</option>
+               <option value="Guitarra-PcF">Guitarra F</option>
+               <option value="Guitarra-PcG">Guitarra G</option>
+               <option value="TamborimG">Tamborim Grave</option>
+               <option value="TamborimA">Tamborim Agudo</option>
+               <option value="Vibrafone-C3">Vibrafone C3</option>
+               <option value="Vibrafone-D3">Vibrafone D3</option>
+               <option value="Vibrafone-E3">Vibrafone E3</option>
+               <option value="Vibrafone-G3">Vibrafone G3</option>
+               <option value="Vibrafone-A3">Vibrafone A3</option>
+               <option value="Vibrafone-C4">Vibrafone C4</option>
+               <option value="Apito">Apito</option>
+               <option value="BarcoMotor">Barco a motor</option>
+               <option value="BatidaCarro1">Batida de carro</option>
+               <option value="Buzina">Buzina</option>
+               <option value="Caminhao2">Caminhão</option>
+               <option value="Chuva1">Chuva 1</option>
+               <option value="Embaixodagua">Embaixo da água</option>
+               <option value="Freiada1">Freiada de carro</option>
+               <option value="Gaivotas">Gaivotas</option>
+               <option value="Laser1">Raio Laser</option>
+               <option value="Magia1">Magia 1</option>
+               <option value="NaveEspacial1">Nave espacial 1</option>
+               <option value="Ondas">Ondas</option>
+               <option value="Passo1">Passo 1</option>
+               <option value="Rua_com_trafego">Rua com trafego</option>
+               <option value="Sci-fi1">Sci-fi1</option>
+               <option value="Sci-fi2">Sci-fi2</option>
+               <option value="Sci-fi3">Sci-fi3</option>
+               <option value="Skating">Skating</option>
+               <option value="Trafego">Trafego</option>
+               <option value="Trovoada">Trovoada</option>
+               <option value="Velejando">Velejando</option>
+               <option value="Vento1">Vento</option>
+
+              </select>
+              <button id="pb1" onclick= "bPlay1()" class="playBots">A</button>
+              <input class="sliders" id ="sld1" type="range" min="0" max=1.0 step="0.1" value="0.5"></input>
+            </div>
+
+            <div id="canalCont2" class="canalCont">
+              <h1 id="nomeCanal2">Canal 2</h1>
+              <select name="sons" id="menu2"class="menus" onchange="trocaSom2()">
+                <option value="BassC3">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Bumbo" >Bumbo</option>
+                <option value="Caixa" selected="selected">Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+
+              </select>
+              <button id="pb2" class="playBots" onclick="bPlay2()">S</button>
+              <input class="sliders" id ="sld2" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+
+            <div id="canalCont3" class="canalCont">
+              <h1 id="nomeCanal3">Canal 3</h1>
+              <select name="sons" id="menu3"class="menus" onchange="trocaSom3()">
+                <option value="BassC3">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Bumbo" >Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon" selected="selected">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+
+              </select>
+              <button id="pb3" class="playBots" onclick="bPlay3()">D</button>
+              <input class="sliders" id ="sld3" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+
+            <div id="canalCont4" class="canalCont">
+              <h1 id="nomeCanal4">Canal 4</h1>
+              <select name="sons" id="menu4" class="menus" onchange="trocaSom4()">
+                <option value="BassC3">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Bumbo" >Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash" selected="selected">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+
+              </select>
+              <button id="pb4" class="playBots" onclick="bPlay4()">F</button>
+              <input class="sliders" id ="sld4" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+            <!-- Canais 5, 6, 7 e 8 -->
+            <div id="canalCont5" class="canalCont">
+
+              <h1 id="nomeCanal5">Canal 5</h1>
+              <select name="sons" id="menu5" class="menus" onchange="trocaSom5()">
+                <option value="BassC3">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Bumbo" >Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC" selected="selected">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+              </select>
+              <button id="pb5" class="playBots" onclick="bPlay5()">G</button>
+              <input class="sliders" id ="sld5" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+            <div id="canalCont6" class="canalCont">
+              <h1 id="nomeCanal6">Canal 6</h1>
+              <select name="sons" id="menu6"class="menus" onchange="trocaSom6()">
+                <option value="BassC3">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Bumbo">Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF" selected="selected">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+              </select>
+              <button id="pb6" class="playBots" onclick="bPlay6()">H</button>
+              <input class="sliders" id ="sld6" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+            <div id="canalCont7" class="canalCont">
+              <h1 id="nomeCanal7">Canal 7</h1>
+              <select name="sons" id="menu7"class="menus" onchange="trocaSom7()">
+                <option value="BassC3">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Bumbo" >Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG" selected="selected">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+              </select>
+              <button id="pb7" class="playBots" onclick="bPlay7()">J</button>
+              <input class="sliders" id ="sld7" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+            <div id="canalCont8" class="canalCont">
+              <h1 id="nomeCanal8">Canal 8</h1>
+              <select name="sons" id="menu8" class="menus" onchange="trocaSom8()">
+                <option value="BassC3">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Bumbo" >Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat" selected="selected">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+              </select>
+              <button id="pb8" class="playBots" onclick="bPlay8()">K</button>
+              <input class="sliders" id ="sld8" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+      </div>
+      <div class="cDivDown">
+            <div id="canalCont9" class="canalCont">
+              <h1 id="nomeCana9">Canal 9</h1>
+              <select name="sons" id="menu9" class="menus" onchange="trocaSom9()">
+                <option value="BassC3">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Bumbo" >Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC" selected="selected">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+              </select>
+              <button id="pb9" class="playBots" onclick="bPlay9()">Z</button>
+              <input class="sliders" id ="sld9" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+            <div id="canalCont10" class="canalCont">
+              <h1 id="nomeCanal10">Canal 10</h1>
+              <select name="sons" id="menu10" class="menus" onchange="trocaSom10()">
+                <option value="BassC3">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Bumbo" >Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm" selected="selected">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+              </select>
+              <button id="pb10" class="playBots" onclick="bPlay10()">X</button>
+              <input class="sliders" id ="sld10" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+            <div id="canalCont11" class="canalCont">
+              <h1 id="nomeCanal11">Canal 11</h1>
+              <select name="sons" id="menu11" class="menus" onchange="trocaSom11()">
+                <option value="BassC3">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Bumbo" >Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF"selected="selected">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+              </select>
+              <button id="pb11" class="playBots" onclick="bPlay11()">C</button>
+              <input class="sliders" id ="sld11" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+            <div id="canalCont12" class="canalCont">
+              <h1 id="nomeCanal12">Canal 12</h1>
+              <select name="sons" id="menu12" class="menus" onchange="trocaSom12()">
+                <option value="BassC3">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Bumbo" >Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG" selected="selected">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+              </select>
+              <button id="pb12" class="playBots" onclick="bPlay12()">V</button>
+              <input class="sliders" id ="sld12" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+            <div id="canalCont13" class="canalCont">
+              <h1 id="nomeCanal13">Canal 13</h1>
+              <select name="sons" id="menu13" class="menus" onchange="trocaSom13()">
+                <option value="BassC3" selected="selected">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Bumbo" >Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+              </select>
+              <button id="pb13" class="playBots" onclick="bPlay13()">B</button>
+              <input class="sliders" id ="sld13" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+            <div id="canalCont14" class="canalCont">
+              <h1 id="nomeCanal4">Canal 14</h1>
+              <select name="sons" id="menu14" class="menus" onchange="trocaSom14()">
+                <option value="BassC3">Baixo C3</option>
+                <option value="BassF3" selected="selected">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Bumbo" >Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+              </select>
+              <button id="pb14" class="playBots" onclick="bPlay14()">N</button>
+              <input class="sliders" id ="sld14" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+            <div id="canalCont15" class="canalCont">
+              <h1 id="nomeCanal15">Canal 15</h1>
+              <select name="sons" id="menu15" class="menus" onchange="trocaSom15()">
+                <option value="BassC3">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3" selected="selected">Baixo G3</option>
+                <option value="Bumbo" >Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+              </select>
+              <button id="pb15" class="playBots" onclick="bPlay15()">M</button>
+              <input class="sliders" id ="sld15" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+            <div id="canalCont16" class="canalCont">
+              <h1 id="nomeCanal16">Canal 16</h1>
+              <select name="sons" id="menu16" class="menus" onchange="trocaSom16()">
+                <option value="BassC3" selected="selected">Baixo C3</option>
+                <option value="BassF3">Baixo F3</option>
+                <option value="BassG3">Baixo G3</option>
+                <option value="Base1">Base 1</option>
+                <option value="Bumbo">Bumbo</option>
+                <option value="Caixa" >Caixa</option>
+                <option value="Cajon">Cajon</option>
+                <option value="Crash">Crash</option>
+                <option value="Guitarra-PcC">Guitarra C</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="HiHat">HiHat</option>
+                <option value="PianoC">Piano C maior</option>
+                <option value="PianoD">Piano D maior</option>
+                <option value="PianoEm">Piano E menor</option>
+                <option value="PianoF">Piano F maior</option>
+                <option value="PianoG">Piano G maior</option>
+                <option value="PianoBm">Piano B menor</option>
+                <option value="PianoC3">Piano C3</option>
+                <option value="PianoD3">Piano D3</option>
+                <option value="PianoE3">Piano E3</option>
+                <option value="PianoF3">Piano F3</option>
+                <option value="PianoF#3">Piano F#3</option>
+                <option value="PianoG3">Piano G3</option>
+                <option value="PianoA3">Piano A3</option>
+                <option value="PianoB3">Piano B3</option>
+                <option value="Ride">Ride</option>
+                <option value="SurdoA">Surdo Agudo</option>
+                <option value="SurdoG">Surdo Grave</option>
+                <option value="Guitarra-PcF">Guitarra F</option>
+                <option value="Guitarra-PcG">Guitarra G</option>
+                <option value="TamborimG">Tamborim Grave</option>
+                <option value="TamborimA">Tamborim Agudo</option>
+                <option value="Vibrafone-C3">Vibrafone C3</option>
+                <option value="Vibrafone-D3">Vibrafone D3</option>
+                <option value="Vibrafone-E3">Vibrafone E3</option>
+                <option value="Vibrafone-G3">Vibrafone G3</option>
+                <option value="Vibrafone-A3">Vibrafone A3</option>
+                <option value="Vibrafone-C4">Vibrafone C4</option>
+                <option value="Apito">Apito</option>
+                <option value="BarcoMotor">Barco a motor</option>
+                <option value="BatidaCarro1">Batida de carro</option>
+                <option value="Buzina">Buzina</option>
+                <option value="Caminhao2">Caminhão</option>
+                <option value="Chuva1">Chuva 1</option>
+                <option value="Embaixodagua">Embaixo da água</option>
+                <option value="Freiada1">Freiada de carro</option>
+                <option value="Gaivotas">Gaivotas</option>
+                <option value="Laser1">Raio Laser</option>
+                <option value="Magia1">Magia 1</option>
+                <option value="NaveEspacial1">Nave espacial 1</option>
+                <option value="Ondas">Ondas</option>
+                <option value="Passo1">Passo 1</option>
+                <option value="Rua_com_trafego">Rua com trafego</option>
+                <option value="Sci-fi1">Sci-fi1</option>
+                <option value="Sci-fi2">Sci-fi2</option>
+                <option value="Sci-fi3">Sci-fi3</option>
+                <option value="Skating">Skating</option>
+                <option value="Trafego">Trafego</option>
+                <option value="Trovoada">Trovoada</option>
+                <option value="Velejando">Velejando</option>
+                <option value="Vento1">Vento</option>
+              </select>
+              <button id="pb16" class="playBots" onclick="bPlay16()">Bases</button>
+              <input class="sliders" id ="sld16" type="range" min="0" max=1.0 step="0.1"></input>
+            </div>
+            <h1 class="arts">Artefato 1</h1>
+       </div>
+
+     </div>
+     <!-- Segundo artefato -->
+     <div id="canaisDiv2" class="canaisDiv">
+           <div class="cDivUp">
+             <div id="canalCont17" class="canalCont">
+
+               <h1 id="nomeCanal17">Canal 17</h1>
+               <select name="sons" id="menu17" onchange="trocaSom17()" class="menus">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" selected="selected">Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+
+               </select>
+               <button id="pb17" onclick= "bPlay17()" class="playBots">1</button>
+               <input class="sliders" id ="sld17" type="range" min="0" max=1.0 step="0.1" value="0.5"></input>
+             </div>
+
+             <div id="canalCont18" class="canalCont">
+               <h1 id="nomeCanal18">Canal 18</h1>
+               <select name="sons" id="menu18"class="menus" onchange="trocaSom18()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa"selected="selected" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb18" class="playBots" onclick="bPlay18()">2</button>
+               <input class="sliders" id ="sld18" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+
+             <div id="canalCont19" class="canalCont">
+               <h1 id="nomeCanal19">Canal 19</h1>
+               <select name="sons" id="menu19"class="menus" onchange="trocaSom19()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat"selected="selected">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb19" class="playBots" onclick="bPlay19()">3</button>
+               <input class="sliders" id ="sld19" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+
+             <div id="canalCont20" class="canalCont">
+               <h1 id="nomeCanal20">Canal 20</h1>
+               <select name="sons" id="menu20" class="menus" onchange="trocaSom20()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat"selected="selected">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb20" class="playBots" onclick="bPlay20()">4</button>
+               <input class="sliders" id ="sld20" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+             <!-- Canais 5, 6, 7 e 8 -->
+             <div id="canalCont21" class="canalCont">
+
+               <h1 id="nomeCanal21">Canal 21</h1>
+               <select name="sons" id="menu21" class="menus" onchange="trocaSom21()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA" selected="selected">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb21" class="playBots" onclick="bPlay21()">5</button>
+               <input class="sliders" id ="sld21" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+             <div id="canalCont22" class="canalCont">
+               <h1 id="nomeCanal22">Canal 22</h1>
+               <select name="sons" id="menu22"class="menus" onchange="trocaSom22()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG" selected="selected">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb22" class="playBots" onclick="bPlay22()">6</button>
+               <input class="sliders" id ="sld22" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+             <div id="canalCont23" class="canalCont">
+               <h1 id="nomeCanal23">Canal 23</h1>
+               <select name="sons" id="menu23"class="menus" onchange="trocaSom23()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF"</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride" selected="selected">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb23" class="playBots" onclick="bPlay23()">7</button>
+               <input class="sliders" id ="sld23" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+             <div id="canalCont24" class="canalCont">
+               <h1 id="nomeCanal24">Canal 24</h1>
+               <select name="sons" id="menu24" class="menus" onchange="trocaSom24()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash" selected="selected">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb24" class="playBots" onclick="bPlay24()">8</button>
+               <input class="sliders" id ="sld24" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+       </div>
+       <div class="cDivDown">
+             <div id="canalCont25" class="canalCont">
+               <h1 id="nomeCana25">Canal 25</h1>
+               <select name="sons" id="menu25" class="menus" onchange="trocaSom25()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA" selected="selected">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb25" class="playBots" onclick="bPlay25()">9</button>
+               <input class="sliders" id ="sld25" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+             <div id="canalCont26" class="canalCont">
+               <h1 id="nomeCanal26">Canal 26</h1>
+               <select name="sons" id="menu26" class="menus" onchange="trocaSom26()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG"selected="selected">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb26" class="playBots" onclick="bPlay26()">0</button>
+               <input class="sliders" id ="sld26" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+             <div id="canalCont27" class="canalCont">
+               <h1 id="nomeCanal27">Canal 27</h1>
+               <select name="sons" id="menu27" class="menus" onchange="trocaSom27()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC"selected="selected">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb27" class="playBots" onclick="bPlay27()">Q</button>
+               <input class="sliders" id ="sld27" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+             <div id="canalCont28" class="canalCont">
+               <h1 id="nomeCanal28">Canal 28</h1>
+               <select name="sons" id="menu28" class="menus" onchange="trocaSom28()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm"selected="selected">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb28" class="playBots" onclick="bPlay28()">W</button>
+               <input class="sliders" id ="sld28" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+             <div id="canalCont29" class="canalCont">
+               <h1 id="nomeCanal29">Canal 29</h1>
+               <select name="sons" id="menu29" class="menus" onchange="trocaSom29()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm"selected="selected">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb29" class="playBots" onclick="bPlay29()">E</button>
+               <input class="sliders" id ="sld29" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+             <div id="canalCont30" class="canalCont">
+               <h1 id="nomeCana30">Canal 30</h1>
+               <select name="sons" id="menu30" class="menus" onchange="trocaSom30()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF"selected="selected">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb30" class="playBots" onclick="bPlay30()">R</button>
+               <input class="sliders" id ="sld30" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+             <div id="canalCont31" class="canalCont">
+               <h1 id="nomeCanal15">Canal 31</h1>
+               <select name="sons" id="menu31" class="menus" onchange="trocaSom31()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG" selected="selected">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb31" class="playBots" onclick="bPlay31()">T</button>
+               <input class="sliders" id ="sld31" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+             <div id="canalCont32" class="canalCont">
+               <h1 id="nomeCanal32">Canal 32</h1>
+               <select name="sons" id="menu32" class="menus" onchange="trocaSom32()">
+                 <option value="BassC3">Baixo C3</option>
+                 <option value="BassF3">Baixo F3</option>
+                 <option value="BassG3">Baixo G3</option>
+                 <option value="Base1">Base 1</option>
+                 <option value="Bumbo" >Bumbo</option>
+                 <option value="Caixa" >Caixa</option>
+                 <option value="Cajon">Cajon</option>
+                 <option value="Crash">Crash</option>
+                 <option value="Guitarra-PcC">Guitarra C</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="HiHat">HiHat</option>
+                 <option value="PianoC">Piano C maior</option>
+                 <option value="PianoD"selected="selected">Piano D maior</option>
+                 <option value="PianoEm">Piano E menor</option>
+                 <option value="PianoF">Piano F maior</option>
+                 <option value="PianoG">Piano G maior</option>
+                 <option value="PianoBm">Piano B menor</option>
+                 <option value="PianoC3">Piano C3</option>
+                 <option value="PianoD3">Piano D3</option>
+                 <option value="PianoE3">Piano E3</option>
+                 <option value="PianoF3">Piano F3</option>
+                 <option value="PianoF#3">Piano F#3</option>
+                 <option value="PianoG3">Piano G3</option>
+                 <option value="PianoA3">Piano A3</option>
+                 <option value="PianoB3">Piano B3</option>
+                 <option value="Ride">Ride</option>
+                 <option value="SurdoA">Surdo Agudo</option>
+                 <option value="SurdoG">Surdo Grave</option>
+                 <option value="Guitarra-PcF">Guitarra F</option>
+                 <option value="Guitarra-PcG">Guitarra G</option>
+                 <option value="TamborimG">Tamborim Grave</option>
+                 <option value="TamborimA">Tamborim Agudo</option>
+                 <option value="Vibrafone-C3">Vibrafone C3</option>
+                 <option value="Vibrafone-D3">Vibrafone D3</option>
+                 <option value="Vibrafone-E3">Vibrafone E3</option>
+                 <option value="Vibrafone-G3">Vibrafone G3</option>
+                 <option value="Vibrafone-A3">Vibrafone A3</option>
+                 <option value="Vibrafone-C4">Vibrafone C4</option>
+                 <option value="Apito">Apito</option>
+                 <option value="BarcoMotor">Barco a motor</option>
+                 <option value="BatidaCarro1">Batida de carro</option>
+                 <option value="Buzina">Buzina</option>
+                 <option value="Caminhao2">Caminhão</option>
+                 <option value="Chuva1">Chuva 1</option>
+                 <option value="Embaixodagua">Embaixo da água</option>
+                 <option value="Freiada1">Freiada de carro</option>
+                 <option value="Gaivotas">Gaivotas</option>
+                 <option value="Laser1">Raio Laser</option>
+                 <option value="Magia1">Magia 1</option>
+                 <option value="NaveEspacial1">Nave espacial 1</option>
+                 <option value="Ondas">Ondas</option>
+                 <option value="Passo1">Passo 1</option>
+                 <option value="Rua_com_trafego">Rua com trafego</option>
+                 <option value="Sci-fi1">Sci-fi1</option>
+                 <option value="Sci-fi2">Sci-fi2</option>
+                 <option value="Sci-fi3">Sci-fi3</option>
+                 <option value="Skating">Skating</option>
+                 <option value="Trafego">Trafego</option>
+                 <option value="Trovoada">Trovoada</option>
+                 <option value="Velejando">Velejando</option>
+                 <option value="Vento1">Vento</option>
+               </select>
+               <button id="pb32" class="playBots" onclick="bPlay32()">Y</button>
+               <input class="sliders" id ="sld32" type="range" min="0" max=1.0 step="0.1"></input>
+             </div>
+            <h1 class="arts">Artefato 2</h1>
+        </div>
+      </div>
+      <!-- terceiro artefato  -->
+  </div>
+
+  <div id='transportContainer'>
+          <button id="criaUserBot" class ="transportButtons" onclick="checaCliente()">
+           <ion-icon name="person-add-sharp" size="large"></ion-icon>
+          </button>
+          <button id="salvaSessao" class ="transportButtons" onclick="salvaSessao()">
+            <ion-icon name="save-sharp" size="large"></ion-icon>
+          </button>
+          <button id="metroBot" class ="transportButtons" onclick="showDivMetronomo()" >
+            <img src="imgs/icons/metronome.png" id="metroImg"></img>
+          </button>
+          <button id="recordBtn" class="transportButtons" onclick="recBtn()">
+            <ion-icon name="recording-sharp" size="large"></ion-icon>
+          </button>
+          <button id="salvaRecordBtn" class="transportButtons" onclick="stopGrav()">
+            <ion-icon name="stop-sharp" size="large"></ion-icon>
+          </button>
+          <div id="formDiv" display="none">
+            <form action="/" method="post" id="form" display="none" enctype="multipart/form-data">
+               <input type="file" name='filetoupload' onchange="submitFile()" display="none" id="inputFile"/><br>
+               <input type="submit" id="submitBot" display="none"></input>
+             </form>
+          </div>
+          <!-- <button id="uploadButton" class="transportButtons" onclick="ativa()">
+            <ion-icon name="cloud-upload-outline" size="large"></ion-icon>
+          </button> -->
+    </div>
+  <div id="galeriaClientes" class="auxJanelas">
+    <div class = "divMenuTop" id="divMenuTopCriadores">
+      <h1 class="titulosJanelas" id="tituloCriadores">CRIADORES</h1>
+      <button class="fechadorJanelas" id="botFechaTrilhaDiv" onclick="tiraJanelas()">
+          <img class="iconFechaJanelas" src="imgs/icons/back.png"></img>
+      </button>
+    </div>
+    <div id="footer" ></div>
+  </div>
+
+  <div id="galeriaClienteGravinas" class="auxJanelas">
+    <div class = "divMenuTop" >
+      <h1 class="titulosJanelas" id="tituloCriador"></h1>
+      <button class="fechadorJanelas" id="botFechaGravinasMenu" onclick="showClientes()">
+          <img class="iconFechaJanelas" src="imgs/icons/back.png"></img>
+      </button>
+    </div>
+    <div id="gravinas"></div>
+    <div id="clMenuDownDiv">
+        <!-- <Button class="clMenuDownBots" onclick="">Gravações</button>
+        <Button class="clMenuDownBots">Mensagens</button>
+        <Button class="clMenuDownBots">outros</button> -->
+    </div>
+  </div>
+
+  <div id="galeriaCriacoes"  class="auxJanelas">
+    <div class = "divMenuTop" id="divMenuTopCriações">
+      <h1 class ="titulosJanelas" id="tituloCriações" >CRIAÇÕES</h1><button class="fechadorJanelas" onclick="fechaJanelaCriações()">
+          <img class = "iconFechaJanelas"  src="imgs/icons/back.png"></img>
+        </button>
+    </div>
+  <div id="audioCombo"></div>
+  </div>
+
+  <div id="clientIconGaleria" class="auxJanelas">
+    <div class = "divMenuTop" >
+      <h1 class ="titulosJanelas" >Escolha um avatar</h1>
+      <button class="fechadorJanelas" onclick="fechaJanelaIcones()">
+          <img class = "iconFechaJanelas"  src="imgs/icons/back.png"></img>
+        </button>
+    </div>
+    <div id="iconsDiv">
+      <img id="bird" class ="icons" name = "bird" src="imgs/icons/bird.png"></img>
+      <img id="giraffe" class ="icons" name = "giraffe" src="imgs/icons/giraffe.png"></img>
+      <img id="pig" class ="icons" name = "pig" src="imgs/icons/pig.png"></img>
+      <img id="borboleta" class ="icons" name = "borboleta" src="imgs/icons/borboleta.png"></img>
+      <img id="giraffe" class ="icons" name = "giraffe" src="imgs/icons/giraffe.png"></img>
+      <img id="bunny-1" class ="icons" name = "bunny-1" src="imgs/icons/bunny-1.png"></img>
+      <img id="bunny-2" class ="icons" name = "bunny-2" src="imgs/icons/bunny-2.png"></img>
+      <img id="penguin" class ="icons" name = "penguin" src="imgs/icons/penguin.png"></img>
+      <img id="sheep-b" class ="icons" name = "sheep-b" src="imgs/icons/sheep-b.png"></img>
+      <img id="sheep-w" class ="icons" name = "sheep-w" src="imgs/icons/sheep-w.png"></img>
+      <img id="hippo" class ="icons" name = "hippo" src="imgs/icons/hippo.png"></img>
+      <img id="chicken" class ="icons" name = "chicken" src="imgs/icons/chicken.png"></img>
+      <img id="cat" class ="icons" name = "cat" src="imgs/icons/cat.png"></img>
+      <img id="chick-1" class ="icons" name = "chick-1" src="imgs/icons/chick-1.png"></img>
+      <img id="chick-2" class ="icons" name = "chick-2" src="imgs/icons/chick-2.png"></img>
+      <img id="chick-3" class ="icons" name = "chick-3" src="imgs/icons/chick-3.png"></img>
+    </div>
+  </div>
+  <div id="divSessões" class ="auxJanelas" >
+  </div>
+
+  <div id="chat" class="auxJanelas">
+    <div class = "divMenuTop" >
+      <h1 class ="titulosJanelas" id="tituloChat" >CHAT</h1><button class="fechadorJanelas" onclick="fechaJanelaChat()">
+          <img class = "iconFechaJanelas"  src="imgs/icons/back.png"></img>
+        </button>
+    </div>
+    <ui id="msnBox">
+    </ui>
+    <div id="divMsn">
+      <textarea id="textArea" rows="4" cols="90" onfocus="zeraVolume()" onfocusout="voltaVolume()" placeholder="Chat" required></textarea>
+        <span class="bsendMsn" id="linkMsn" onclick="sendLink()">
+          <ion-icon name="link" class="sendIcon" size="large"></ion-icon>
+        </span>
+        <span class="bsendMsn"  onclick="sendChatMsn()">
+          <ion-icon name="paper-plane-outline" class="sendIcon" size="large"></ion-icon>
+        </span>
+    </div>
+  </div>
+
+  <div id="metroDiv" class="auxJanelas">
+    <h1 id="metroH1">BPM</h1>
+    <input class="sliders" id ="metroSld" type="range" min="40" max="380.0" step="1.0"></input>
+    <button id="metroOnOffBot">Start/Stop</button>
+  </div>
+
+
+
+<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+<script src="metronome.js"></script>
+<script src="offline-server.js"></script>
+<script src="sketch.js"></script>
+</body>
+
+</html>
