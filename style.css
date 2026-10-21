@@ -1,0 +1,2069 @@
+ html { height:100%; }
+
+    body {
+        height: 100%;
+        width:100%;
+        display:flex;
+        position:fixed;
+        flex-direction: column;
+        min-height: 100vh;
+        padding-top: 0;
+        margin-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        background-color: white;
+    }
+
+
+  #home {
+    display:flex;
+    position:absolute;
+    flex-direction: column;
+    width:100%;
+    height:100%;
+    background-color: white;
+    z-index: 1;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  #divTrilhaSonora {
+    display:none;
+    position:absolute;
+    flex-direction: column;
+    /* padding-left: 5%;
+    padding-right: 5%; */
+    width:100%;
+    height:88%;
+    background-color: white;
+    z-index: 1;
+    top:11%;
+    align-items: flex-start;
+    border:2px solid black;
+  }
+
+  #divTopMenuTrilha {
+    display:flex;
+    width:100%;
+    height: 10%;
+  }
+
+    #trilhaMenu {
+      display:flex;
+      height:100%;
+      width:92%;
+      left:0;
+      justify-content: center;
+    }
+
+    #fechaTrilha {
+      display:flex;
+      width:8%;
+      height: 10%;
+    }
+
+
+  #videoMenu {
+    display:flex;
+    height:100%;
+    width:100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  #videoBase {
+    align-items: flex-end;
+    display:flex;
+    width:100%;
+    height:100%;
+    }
+
+  #divMovieGaleriaTrilhas{
+    display:flex;
+    flex-direction: row;
+    max-height: 78%;
+    width: 100%;
+  }
+
+  #divMovie {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height:100%;
+    width: 60%;
+  }
+
+ #divTrilhaGaleria {
+   display:flex;
+   flex-direction: row;
+   width:39%;
+   height: 100%;
+   background-color: white;
+   justify-content: space-around;
+   max-height: 100%;
+   max-width: 80%;
+   flex-wrap: wrap;
+   overflow-y: scroll;
+ }
+
+  #transportMovie {
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    height: 12%;
+    justify-content: space-around;
+    background-color: #9BDCF7;
+    align-items: center;
+
+  }
+
+
+#gravaTrilhaBtn {
+ display:flex;
+ background-color: red;
+}
+
+#divTituloHome {
+  display:flex;
+  height: 8%;
+  width:100%;
+  justify-content: center;
+
+}
+
+  #homeTitulo {
+  display:flex;
+  font-size: 400%;
+  padding-bottom: 0;
+  padding-top: 5%;
+  color: #012b78;
+  }
+
+  #divIconHome {
+    display:flex;
+    flex-direction: row;
+    height: 90%;
+    width:100%;
+    justify-content:space-around;
+    align-items: center;
+    padding-top: 2%;
+
+  }
+
+  #homeIcon {
+    display:flex;
+    width:27%;
+    height:75%;
+
+  }
+
+  #homeIconTop {
+    display:flex;
+    width:90%;
+    height:90%;
+  }
+
+  .artContainers {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width:25%;
+    height: 50%;
+    color:black;
+  }
+
+  .tituloArts {
+  Display:flex;
+  width:60%;
+  height: 10%;
+  align-self: center;
+  justify-content: center;
+  color: black;
+  font-size: 20px;
+  }
+
+
+  .arts {
+    position:relative;
+    bottom:0;
+    left:45%;
+    font-size: 40px;
+  }
+
+  .artImgs {
+    display:none;
+    width:90%;
+    height: 90%;
+  }
+
+  /* #enterSiteDiv {
+    display:flex;
+    width:60%;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+    padding-left: 30%;
+    padding-right: 30%;
+  } */
+
+  #enterSiteUp {
+    display:flex;
+    width:100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 50%;
+    background: url(imgs/corrimao-tapetesBig.png) no-repeat;
+  }
+
+  #enterSiteDown {
+    display:flex;
+    right:50px;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    border-radius: 50%;
+    background: url(imgs/mesa-tapetesBig.png) no-repeat;
+  }
+
+
+
+  #top {
+    height:15%;
+    width:100%;
+    display:flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #9BDCF7;
+    min-height: 10%;
+  }
+
+  .topButtons {
+    display:flex;
+    width:1%;
+    height:100%;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 50%;
+    border: 0;
+
+  }
+
+  .topButtons:active {
+            transform: scale(0.85);
+        }
+
+   a {
+     display:flex;
+     color:black;
+     font-size: 20px;
+   }
+
+
+  #metroImg {
+    display:flex;
+    height:80%;
+  }
+
+#numeroClientes {
+  display:none;
+  width:35%;
+  height:35%;
+  color: black;
+  border-radius: 50%;
+  background-color: red;
+  justify-content: center;
+  align-items: center;
+
+}
+
+   #meio {
+     display:flex;
+     width:100%;
+     padding-top: 0;
+     margin-top: 0;
+     min-height: 100%;
+     background-color: white;
+   }
+
+   .canaisDiv {
+     display:flex;
+     width:100%;
+     height:100%;
+     flex-direction: column;
+     justify-content: flex-start;
+
+   }
+
+   #canaisDiv1 {
+     display:none;
+     width:100%;
+     height:100%;
+     flex-direction: column;
+     align-items: center;
+
+   }
+
+   #canaisDiv2 {
+     display:flex;
+     width:100%;
+     height:100%;
+     flex-direction: column;
+     justify-content: flex-start;
+
+   }
+
+    .cDivUp {
+      display:flex;
+      height:30%;
+      width:100%;
+      flex-direction: row;
+      justify-content:space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      /* background-color: white; */
+      margin-bottom: 0;
+      min-height: 33%;
+
+    }
+
+  .cDivDown {
+    display:flex;
+    width:100%;
+    height:30%;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* background-color: white; */
+    min-height: 33%;
+  }
+
+
+    #galeriaClientes {
+      display:none;
+      flex-direction: column;
+      top: 20%;
+      width:70%;
+      right: 10%;
+      height:70%;
+      background-color: white;
+      z-index: 0;
+      border:2px solid black;
+      padding-bottom: 0;
+    }
+
+    #galeriaClienteGravinas {
+      display:none;
+      flex-direction: column;
+      top: 20%;
+      width:70%;
+      right: 10%;
+      height:70%;
+      background-color: coral;
+      z-index:0;
+      border:2px solid black;
+      padding-bottom: 0;
+    }
+
+  #footer {
+    display:flex;
+    flex-direction: row;
+    background-color: white ;
+    height:85%;
+    max-width:100%;
+    overflow-y: scroll;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap:wrap;
+
+  }
+
+  #gravinas {
+    display:flex;
+    flex-direction: row;
+    background-color: lightBlue ;
+    height:100%;
+    max-width:100%;
+    overflow-y: scroll;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap:wrap;
+
+  }
+
+  #clienteMenuCriações {
+    display:none;
+    flex-direction: row;
+    background-color: lightBlue ;
+    height:80%;
+    max-width:100%;
+    overflow-y: scroll;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap:wrap;
+
+  }
+
+.divMenuTop {
+  display:flex;
+  justify-content: center;
+  flex-direction: row;
+  width:100%;
+  height:15%;
+  background-color: white;
+  padding-bottom: 0;
+}
+
+
+
+.titulos {
+  display:flex;
+  font-size: 20px;
+  height:100%;
+  width:50%;
+}
+
+.titulosJanelas {
+  display:flex;
+  font-size: 20px;
+  align-self: center;
+  justify-content: center;
+}
+
+.divBcliente {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width:13%;
+  height:22%;
+}
+
+
+.clienteMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: lightBlue;
+  justify-content:flex-end;
+  width:100%;
+  height:75%;
+}
+
+
+#clMenuDownDiv {
+  display:flex;
+  flex-direction: row;
+  width:100%;
+  height:15%;
+  background-color: lightBlue;
+
+}
+
+.clMenuDownBots {
+  display:flex;
+  width: 34%;
+  height:100%;
+  align-items: center;
+  justify-content: center;
+  background-color: #27afc4;
+  border:2px solid black;
+  font-size: 15px;
+
+}
+
+.clMenuDownBots:active {
+            transform: scale(0.95);
+}
+
+
+.fechadorJanelas {
+  display:flex;
+  position:absolute;
+  width:10%;
+  height: 15%;
+  right: 0;
+  top: 0;
+  background-color: red;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.iconFechaJanelas {
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width:100%;
+  height:100%;
+}
+
+
+.botClientes {
+  display:flex;
+  width:80%;
+  height:80%;
+  border-radius: 50%;
+}
+
+
+
+.botClientes:active {
+          transform: scale(0.85);
+      }
+
+/* div que contem o botão do cliente gravação com avatar e o div com nome e audio */
+  .bDivGravina {
+    display:flex;
+    align-items: flex-start;
+    flex-direction: row;
+    justify-content: center;
+    width:28%;
+    height:20%;
+  }
+
+.botClientesGravinas {
+  display:flex;
+  width:30%;
+  height:100%;
+  border-radius: 50%;
+}
+
+
+
+
+.clAudDiv {
+  display:flex;
+  flex-direction: column;
+  width:70%;
+  height:100%;
+}
+
+.audGravinas {
+  display:flex;
+  width:100%;
+  height:60%;
+}
+
+.nomeGravina {
+  display:flex;
+  flex-direction: row;
+  width:100%;
+  height:30%;
+  justify-content: center;
+
+}
+
+.bDelGravina {
+  display:flex;
+  align-self: flex-end;
+}
+
+.imageIconsGravinas {
+  display:flex;
+  width:90%;
+  height:90%;
+
+}
+
+.clienteMenuGravinas {
+  display:flex;
+  width:100%;
+  height:80%;
+  font-size: 15px;
+  background-color: lightgreen;
+
+}
+
+#iconsDiv {
+  flex-direction: column;
+  top: 20%;
+  right: 10%;
+  background-color: white;
+  display:flex;
+  width:60%;
+  height:70%;
+  padding-left:0;
+  padding-right: 0;
+
+  padding-bottom: 10px;
+  align-self: start;
+  flex-wrap: wrap;
+
+}
+
+.imageIcons {
+  display: flex;
+  width: 90%;
+  height:90%;
+  border-radius: 50%;
+}
+
+.imageIcons:active {
+          transform: scale(0.85);
+      }
+
+
+.nome {
+  display:flex;
+  color: black;
+  font-size: 15px;
+  align-self: center;
+  justify-content:space-between;
+  align-items: flex-start;
+
+}
+
+  .gctop {
+    display:flex;
+    width: 100%;
+    height: 10%;
+    flex-direction: row;
+
+  }
+
+  #clientIconGaleria {
+    display:none;
+    flex-direction: column;
+    top: 20%;
+    width:70%;
+    right: 10%;
+    height:70%;
+    background-color: white;
+    padding-left: 0;
+    padding-right: 0;
+    border:4px solid black;
+    align-items: center;
+}
+
+ #iconsDiv {
+   display:flex;
+   width: 90%;
+   height: 70%;
+   background-color: white;
+   justify-content: space-between;
+   padding-left: 10px;
+   padding-right: 10px;
+   padding-top: 5%;
+   padding-bottom: 10px;
+   align-self: center;
+ }
+
+  #galeriaCriacoes {
+    display:none;
+    flex-direction: column;
+    top: 10.9%;
+    width:100%;
+    right: 0%;
+    height:77%;
+    background-color: white;
+    z-index: 0;
+    border-left: 5px;
+    border:4px solid black;
+  }
+
+.divCriacao {
+  display:flex;
+  flex-direction: row;
+  width: 38%;
+  height: 25%;
+  background-color: lightBlue;
+}
+
+.botCriacao {
+  display:flex;
+  width:30%;
+  height:100%;
+}
+
+  .menuAudios {
+    display:none;
+    position:relative;
+    flex-direction: row;
+    align-items: center;
+    height: 50%;
+    background-color: lightBlue;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width:100%;
+    overflow-y: scroll;
+
+  }
+
+
+  .icons {
+    display:flex;
+    width:10%;
+    height:20%;
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  .icons:active {
+    transform: scale(0.85);
+  }
+
+  .iconCliente {
+    display:flex;
+    width:90%;
+    height:80%;
+    background-color: white;
+    border-radius: 50%;
+  }
+
+  .iconCliente:active {
+    transform: scale(0.85);
+  }
+
+  #audioCombo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width:100%;
+    height: 80%;
+    background-color: white;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width:100%;
+    overflow-y: scroll;
+
+  }
+
+  .usDiv {
+     padding-left: 1%;
+     padding-right: 1%;
+     padding-top: 1%;
+     padding-bottom: 1%;
+     display: flex;
+     width:20%;
+     height:38%;
+     flex-direction: column;
+     background-color:white;
+
+     }
+
+
+   #capaUsDiv {
+     display:flex;
+     flex-direction: row;
+     height:40%;
+     width:100%;
+   }
+
+    .usTrilhaDiv {
+      padding-left: 1%;
+      padding-right: 1%;
+      padding-top: 1%;
+      padding-bottom: 1%;
+      display: flex;
+      width:40%;
+      height:10%;
+      flex-direction: column;
+      background-color:white;
+    }
+
+
+  .capaUsTrilhaDiv {
+    display:flex;
+    flex-direction: row;
+    height:100%;
+    width:100%;
+  }
+
+  .capaUsCriacao {
+    display:flex;
+    flex-direction: column;
+    height:100%;
+    width:80%;
+  }
+
+  .capaUsCriacaotop {
+    display:flex;
+    flex-direction: row;
+    height:40%;
+    width:100%;
+    justify-content: space-between;
+  }
+
+  .usBot {
+    display:flex;
+    width:80%;
+    height:100%;
+    align-items: center;
+    font-size: 80%;
+  }
+
+  .bDel {
+    display:flex;
+    justify-content: center;
+    width:20%;
+    height:100%;
+    background-color: lightBlue;
+    font-size: 10px;
+  }
+
+  .bDelCria {
+    display:flex;
+    justify-content: center;
+    width:20%;
+    height:100%;
+    background-color: lightBlue;
+    font-size: 10px;
+  }
+
+  .audUser {
+    display:flex;
+    width:100%;
+    height:60%;
+  }
+
+  .audCria {
+    display:flex;
+    width:70%;
+    height:60%;
+  }
+
+  .audTUser {
+    display:flex;
+    width:100%;
+    height:60%;
+  }
+
+  #blobWave {
+    position:relative;
+    width: 100%;
+    height:50%;
+  }
+
+
+
+
+  .userExBots {
+   display: flex;
+   height:100%;
+   width:80%;
+  }
+
+   .usExDiv {
+        display: flex;
+        background-color: white;
+        width:20%;
+        height:25%;
+        flex-direction: column;
+    }
+
+    #capaUsExDiv {
+      display:flex;
+      flex-direction: row;
+      height:50%;
+      width:100%;
+    }
+
+
+  .userBots {
+    display: flex;
+    flex-direction: column;
+    width: 15%;
+    height: 30%;
+    background-color: white;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+  }
+
+.userBots:active {
+  transform:scale(0.85);
+}
+
+  .canalCont {
+    display:flex;
+    flex-direction: column;
+    width:12%;
+    height:80%;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+  }
+
+ h1 {
+   display:flex;
+   font-size: 90%;
+   color: black;
+   align-self: center;
+ }
+
+ .menus {
+   display:flex;
+   width:100%;
+   height:15%;
+   align-items: center;
+ }
+
+ .playBots {
+   display:flex;
+   width:100%;
+   height:50%;
+   background-color: #678EFA;
+   color:black;
+   align-items: center;
+   justify-content: center;
+   font-size:200%;
+   touch-action: manipulation;
+ }
+
+
+.sliders {
+  display:flex;
+  width:100%;
+  height:10%;
+}
+
+#metroDiv {
+  position: absolute;
+  top: 32%;
+  left:40%;
+  padding-left: 4px;
+  padding-right: 4px;
+  padding-bottom: 4px;
+  display:none;
+  width:10%;
+  height:35%;
+  background-color: black;
+  flex-direction: column;
+  justify-content:space-between;
+  align-items: center;
+}
+
+#metroH1 {
+  display:flex;
+  color: white;
+  align-items: center;
+  justify-content: flex-end;
+  font-size: 12px;
+
+}
+
+#metroOnOffBot {
+  display:flex;
+  width:100%;
+  height:20%;
+  justify-content: center;
+  border:1px solid black;
+}
+
+#metroOnOffBot:active {
+  transform:scale(0.85);
+}
+
+#metroSld {
+  padding-top: 0;
+  display:flex;
+  align-self: center;
+  width:100%;
+  height:80%;
+}
+
+#transportContainer {
+ display:flex;
+ position:absolute;
+ bottom: 0;
+ flex-direction: row;
+ background-color: #86D6F9;
+ width:90%;
+ justify-content:space-between;
+ height:10%;
+ padding-left: 5%;
+ padding-right: 6%;
+ min-height: 10%;
+ padding-top: 10px;
+
+}
+
+.transportButtons {
+display:flex;
+width:5%;
+height:90%;
+align-items: center;
+justify-content: space-around;
+border-radius: 50%;
+border: 3px;
+border-color: black;
+}
+
+.transportButtons :active {
+  transform: scale(0.85);
+}
+
+
+/* Transport Bar */
+#criaUserBot {
+background-color: white;
+}
+
+#criaUserBot:active {
+transform:scale(0.85);
+
+}
+
+#salvaSessao {
+display:flex;
+}
+
+#salvaSessao:active {
+transform:scale(0.85);
+
+}
+
+#recordBtn {
+display:flex;
+background-color: red;
+}
+
+#recordBtn:active {
+ transform: scale(0.70);
+}
+
+#salvaRecordBtn: {
+background-color: white;
+}
+
+#salvaRecordBtn:active {
+ transform: scale(0.85);
+
+}
+
+
+#formDiv {
+ display:none;
+}
+
+#uploadButton {
+ display:flex;
+ background-color: #a8a1f7;
+}
+
+#uploadButton:active {
+ transform: scale(0.85);
+
+}
+
+#chat {
+ display:none;
+ flex-direction: column;
+ top: 20%;
+ width:70%;
+ right: 10%;
+ height:70%;
+ background-color: white;
+ z-index: 0;
+ border:4px solid black;
+
+}
+
+#msnBox {
+ display:flex;
+ width:100%;
+ height:100%;
+ max-height:80%;
+ overflow-y: scroll;
+ flex-direction: column;
+ background-color: white;
+}
+
+
+#divChatMsn {
+display: flex;
+height:15%;
+width:100%;
+max-width: 90%;
+background-color:white;
+flex-direction: column;
+}
+
+#dateAndTime {
+display: flex;
+font-size: 15px;
+}
+
+#nomeAndMsn {
+display:flex;
+font-size: 25px;
+}
+
+
+
+
+h2 {
+display:flex;
+}
+
+
+.bsendMsn {
+display:flex;
+width:10%;
+height:100%;
+align-items: center;
+justify-content:
+}
+
+.sendIcon {
+  display:flex;
+  width:100%;
+  height:100%;
+  justify-content: center;
+}
+
+   #divMsn {
+     display:flex;
+     flex-direction: row;
+     width:100%;
+     height:13%;
+
+   }
+
+   #textArea {
+     font-size: 17px;
+     width:80%;
+   }
+
+   #userMsn {
+     display: flex;
+     width:100%;
+     height:100%;
+     font-size: 25px;
+     max-width: 100%;
+   }
+
+
+
+/* This is a single-line comment ////////////////////////////////tela cel 416 x 760px////////////////////////////////////////*/
+   /* @media screen and (max-width: 416px) { */
+   @media screen and (max-width: 416px) {
+     html {
+       height:100%;
+       width:100%;
+     }
+
+     body {
+         position:fixed;
+         display:flex;
+         width:100%;
+         height:100%;
+         flex-direction: column;
+         min-height: 100vh;
+         background-color: white;
+         margin-left: 0;
+         margin-right: 0;
+         margin-bottom: 0;
+         justify-content: flex-start;
+
+     }
+
+      #top {
+        display:flex;
+        width:100%;
+        flex-direction: row;
+        min-height: 7.5%;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        align-self: flex-start;
+
+      }
+
+      .topButtons {
+        display:flex;
+        width:15%;
+        height:100%;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 50%;
+
+
+      }
+
+
+      .topButtons:active {
+                transform: scale(0.85);
+            }
+
+      #home {
+        display:flex;
+        position:absolute;
+        top:0;
+        flex-direction: column;
+        width:100%;
+        height:100%;
+        background-color: white;
+        z-index: 1;
+        justify-content: flex-start;
+        align-items: center;
+      }
+
+      #divTrilhaSonora {
+        display:none;
+        position:absolute;
+        flex-direction: column;
+        /* padding-left: 5%;
+        padding-right: 5%; */
+        width:100%;
+        height:85%;
+        background-color: white;
+        z-index: 1;
+        top:8%;
+        align-items:flex-start;
+        border:2px solid black;
+      }
+
+      #divTopMenuTrilha {
+        display:flex;
+        width:100%;
+        height: 10%;
+      }
+
+        #trilhaMenu {
+          display:flex;
+          height:100%;
+          width:85%;
+          left:0;
+          justify-content: center;
+        }
+
+        #fechaTrilha {
+          display:flex;
+          width:15%;
+          height: 10%;
+        }
+
+      #divMovie {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        height:80%;
+        width: 80%;
+
+      }
+
+      #transportMovie {
+        display:flex;
+        flex-direction: row;
+        width:100%;
+        height: 12%;
+        bottom:5%;
+        justify-content: space-around;
+        background-color: #9BDCF7;
+        align-items: center;
+
+      }
+
+
+    #gravaTrilhaBtn {
+     display:flex;
+     background-color: red;
+    }
+
+      #videoMenu {
+        display:flex;
+        height:100%;
+        width:100%;
+        align-items: center;
+        justify-content: center;
+      }
+
+
+
+      #videoBase {
+        display:flex;
+        position: relative;
+        width:100%;
+        height:100%;
+        align-self: flex-start;
+        }
+
+
+      #divTituloHome {
+        display:flex;
+        height: 10%;
+        width:100%;
+        justify-content: center;
+      }
+
+      #homeTitulo {
+      display:flex;
+      font-size: 50px;
+      bottom: 40%;
+      }
+
+      #divIconHome {
+        display: flex;
+        flex-direction: column;
+        padding-top: 0;
+        display:flex;
+        height: 80%;
+        width:95%;
+        justify-content: space-between;
+        align-items: center;
+        padding-bottom: 5%;
+
+      }
+
+
+      #homeIcon {
+        display:flex;
+        width:60%;
+        height:30%;
+      }
+
+/*
+      #enterSiteDiv {
+        display:flex;
+        width:90%;
+        height: 25%;
+        justify-content: space-between;
+        align-items: center;
+        background-color: white;
+
+
+      } */
+
+
+
+      #enterSiteUp {
+        display:flex;
+        width: 60%;
+        height: 55%;
+        background-color: blue;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        border-radius: 50%;
+        background: url(imgs/corrimao-tapetesSmall.png) no-repeat;
+      }
+
+      #enterSiteDown {
+        display:flex;
+        width: 60%;
+        height: 55%;
+        background-color: blue;
+        color: white;
+        justify-content: center;
+        align-items: center;
+        font-size: 15px;
+        border-radius: 50%;
+          background: url(imgs/mesa-tapetesSmall.png) no-repeat;
+
+      }
+
+      .artContainers {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width:85%;
+        height: 50%;
+        color:black;
+      }
+
+      .tituloArts {
+      Display:flex;
+      width:60%;
+      height: 10%;
+      align-self: center;
+      justify-content: center;
+      color: black;
+      font-size: 20px;
+      }
+
+
+      .arts {
+        position:relative;
+        bottom:0;
+        left:45%;
+        font-size: 40px;
+      }
+
+      .artImgs {
+        display:none;
+        width:90%;
+        height: 90%;
+      }
+
+
+      #galerias {
+        display:none;
+        top: 20%;
+        width:80%;
+        left: 10%;
+        height:60%;
+        margin-left: 3px;
+        margin-right: 3px;
+        background-color: white;
+        z-index: 0;
+        border:2px solid black;
+
+      }
+
+      .titulos {
+        padding-top: 15px;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
+      #titulosCriadores {
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .divMenuTop {
+        display:flex;
+        justify-content: center;
+        flex-direction: row;
+        width:100%;
+        height:12%;
+        background-color: white;
+        padding-bottom: 0;
+      }
+
+  #galeriaClientes {
+    display:none;
+    left : 0;
+    top : 8%;
+    padding-left: 0;
+    padding-right:0;
+    padding-bottom: 0;
+    padding-top: 0;
+    width:101%;
+    height:75%;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    border:1px solid black;
+  }
+
+  #galeriaClienteGravinas {
+    display:none;
+    left : 0;
+    top : 9%;
+    padding-left: 0;
+    padding-right:0;
+    padding-bottom: 0;
+    padding-top: 5px;
+    width:100%;
+    height:70%;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: white;
+    border:2px solid black;
+  }
+
+ #trilhaMenu {
+   display:flex;
+   height:103%;
+ }
+
+
+
+  #divMovieGaleriaTrilhas{
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+  }
+
+  #divMovie {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    height:60%;
+    width: 100%;
+  }
+
+ #divTrilhaGaleria {
+   display:flex;
+   flex-direction: row;
+   height: 39%;
+   width:99%;
+   background-color: white;
+   justify-content: space-between;
+   max-height: 100%;
+   max-width: 95%;
+   overflow-y: scroll;
+   flex-wrap: wrap;
+ }
+
+ .usTrilhaDiv {
+   padding-left: 1%;
+   padding-right: 1%;
+   padding-top: 1%;
+   padding-bottom: 1%;
+   display: flex;
+   width:43%;
+   height:20%;
+   flex-direction: column;
+   background-color:white;
+ }
+
+
+.capaUsTrilhaDiv {
+  padding-left: 1%;
+  padding-right: 1%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+ display:flex;
+ flex-direction: row;
+ height:100%;
+ width:100%;
+ background-color: white;
+}
+
+  #gravinas {
+    align-items: flex-start;
+    display:flex;
+    flex-direction: row;
+    background-color: white;
+    height:85%;
+    width:100%;
+    overflow-y: scroll;
+    justify-content: space-around;
+    flex-wrap:wrap;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 1%;
+    padding-right: 1%;
+  }
+
+
+
+  .bDivGravina {
+    padding:3px;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    display:flex;
+    width:80%;
+    height:25%;
+  }
+
+
+  .botClientesGravinas {
+    display:flex;
+    width:23%;
+    height:80%;
+    border-radius: 50%;
+  }
+
+  .clAudDiv {
+    display:flex;
+    flex-direction: column;
+    width:75%;
+    height:100%;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .nomeGravina {
+    display:flex;
+    align-self: flex-start;
+    font-size: 20px;
+    width:100%;
+    height:25%;
+    align-items: flex-start;
+    justify-content:flex-end;
+
+  }
+
+  .audGravinas {
+    display:flex;
+    width:100%;
+    height:60%;
+  }
+
+  .bDelGravina {
+    display:flex;
+    width:20%;
+    height:100%;
+    background-color: white;
+    align-items: center;
+    justify-content: center;
+  }
+
+
+ #clientIconGaleria {
+   display:none;
+   left : 0;
+   top : 8%;
+   padding-left: 0;
+   padding-right:0;
+   padding-bottom: 0;
+   padding-top: 0;
+   flex-direction: column;
+   width:101%;
+   height:75%;
+   background-color: white;
+   padding-left: 0;
+   padding-right: 0;
+   border:1px solid black;
+   align-items: center;
+
+    }
+
+    #iconsDiv {
+      flex-direction: column;
+      display:flex;
+      width:100%;
+      height: 75%;
+      overflow-y: 60%;
+      background-color: white;
+      padding-left:0;
+      padding-right: 0;
+      padding-bottom: 10px;
+      align-self: center;
+      flex-wrap: wrap;
+
+    }
+
+    .icons {
+      display:flex;
+      width:25%;
+      height:20%;
+      background-color: white;
+      border-radius: 50%;
+    }
+
+    .icons:active {
+      transform: scale(0.85);
+    }
+
+      #galeriaCriacoes {
+        display:none;
+        left : 0;
+        top : 8%;
+        padding-left: 0;
+        padding-right:0;
+        padding-bottom: 0;
+        padding-top: 0;
+        flex-direction: column;
+        width:101%;
+        height:75%;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: white;
+        padding-left: 0;
+        padding-right:0;
+        padding-bottom: 0;
+        padding-top: 0;
+        border:1px solid black;
+      }
+
+
+      #audioCombo {
+        display:flex;
+        width:100%;
+        height:85%;
+      }
+
+      .fechadorJanelas {
+        display:flex;
+        position:absolute;
+        width:18%;
+        height: 12%;
+        right: 0;
+        top: 0;
+        background-color: red;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+
+
+
+      #footer {
+        display:flex;
+        flex-direction: row;
+        background-color: white;
+        height:85%;
+        width:100%;
+        overflow-y: scroll;
+        justify-content: space-around;
+        flex-wrap:wrap;
+        padding-top: 0;
+        padding-bottom: 0;
+        padding-left: 1%;
+        padding-right: 1%;
+      }
+
+      .clienteMenu {
+        display: flex;
+        align-items: center;
+        justify-content:flex-end;
+        position: relative;
+        flex-grow: 1;
+        background-color: lightBlue;
+        width:100%;
+        height:40%;
+      }
+
+      .divBcliente {
+      display:flex;
+      width:40%;
+      height:25%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+
+    }
+
+    .botClientes {
+      display:flex;
+      flex-direction: column;
+      width:70%;
+      height:70%;
+      border-radius: 50%;
+      align-items: center;
+    }
+
+  .clienteMenuGravinas {
+    display:flex;
+    flex-direction: column;
+    background-color: coral;
+    width:100%;
+    height:100%;
+  }
+
+    .imageIcons {
+      display:flex;
+      width:100%;
+      height:100%;
+    }
+
+    .nome {
+      display:flex;
+      align-self: center;
+      font-size: 20px;
+      align-items: flex-start;
+
+    }
+
+      .usDiv {
+           display: flex;
+           width:40%;
+           height:25%;
+           flex-direction: column;
+           background-color:white;
+         }
+
+      #capaUsDiv {
+        display:flex;
+        flex-direction: row;
+        height:50%;
+        width:100%;
+      }
+
+      .usBot {
+        display:flex;
+        width:80%;
+        height:100%;
+      }
+
+      .audUser {
+        display:flex;
+        width:100%;
+        height:50%;
+      }
+
+      .bDel {
+        display:flex;
+        width:35%;
+        height:100%;
+        background-color: lightBlue;
+      }
+
+      .userExBots {
+       display: flex;
+       height:18%;
+       width:40%;
+      }
+
+       .usExDiv {
+         display: flex;
+         width:40%;
+         height:25%;
+         flex-direction: column;
+         background-color:white;
+        }
+
+        #capaUsExDiv {
+          display:flex;
+          flex-direction: row;
+          height:100%;
+          width:100%;
+        }
+
+
+
+      .userBots {
+        display: flex;
+        flex-direction: column;
+        width: 30%;
+        height: 25%;
+        background-color: white;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+      }
+
+      #meio {
+        display:flex;
+        width:100%;
+        min-height: 108%;
+        padding-top: 0;
+        margin-top: 0;
+        padding-bottom: 0;
+        margin-bottom: 0;
+        justify-content: flex-end;
+      }
+
+
+   a {
+     font-size: 130%;
+   }
+
+      h1 {
+        display:flex;
+        font-size: 110%;
+        color: black;
+        align-self: center;
+        margin-top: 0;
+        margin-bottom: 0;
+        justify-content: flex-start;
+      }
+
+      .playBots {
+        display:flex;
+        width:100%;
+        height:70%;
+        background-color: #678EFA;
+        color:black;
+        align-items: center;
+        justify-content: center;
+        font-size:160%;
+        touch-action: manipulation;
+        margin: 3px;
+        padding:3px;
+      }
+
+
+      .canalCont {
+        display:flex;
+        flex-direction: column;
+        width:25%;
+        height: 45%;
+        align-items: center;
+        justify-content: flex-start;
+        background-color: white;
+        padding-top: 0;
+        padding-bottom: 0;
+      }
+
+      .canaisDiv {
+        display:flex;
+        width:100%;
+        height:100%;
+        flex-direction: column;
+        justify-content: flex-start;
+
+      }
+
+      #canaisDiv1 {
+        display:none;
+        width:100%;
+        height:100%;
+        flex-direction: column;
+        align-items: center;
+
+      }
+
+      #canaisDiv2 {
+        display:flex;
+        width:100%;
+        height:100%;
+        flex-direction: column;
+        justify-content: flex-start;
+
+      }
+
+      #cDivUp {
+        display:flex;
+        width:100%;
+        height: 50%;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        background-color: white;
+        min-height: 45%;
+
+      }
+
+      #cDivDown {
+        display:flex;
+        width:100%;
+        height: 50%;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        background-color: white;
+        min-height: 45%;
+      }
+
+      #transportContainer {
+        display:absolute;
+        bottom: 5%;
+        flex-direction: row;
+        background-color: lightBlue;
+        width:97%;
+        height: 5%;
+        justify-content: space-between;
+        align-items: flex-start;
+        margin-top: 0;
+        padding-top: 15px;
+        margin-right: 0;
+        padding-right: 2%;
+        padding-left: 2%;
+      }
+
+      #metroDiv {
+        padding-top: 7px;
+        padding-right: 4px;
+        padding-left: 4px;
+        display:none;
+        width:30%;
+        height:25%;
+        background-color: black;
+        top:40%;
+        left:35%;
+        justify-content: space-between;
+
+      }
+
+      #metroH1 {
+        display:flex;
+        color:white;
+        align-items: center;
+      }
+
+      #metroOnOffBot {
+        display:flex;
+        width:100%;
+        height:23%;
+        justify-content: center;
+        align-items: center;
+        border:4px solid black;
+      }
+
+      #metroSld {
+        display:flex;
+        align-self: center;
+        width:100%;
+        height:70%;
+      }
+
+
+      .transportButtons {
+        display: flex;
+        width: 15%;
+        height: 80%;
+        align-items: center;
+        justify-content: space-around;
+        border-radius: 50%;
+
+      }
+
+      #chat {
+        display:none;
+        left : 0;
+        top : 8%;
+        padding-left: 0;
+        padding-right:0;
+        padding-bottom: 0;
+        padding-top: 0;
+        flex-direction: column;
+        width:101%;
+        height:75%;
+        align-items: center;
+        background-color: white;
+        border:1px solid black;
+      }
+
+      #divMsn {
+        align-self: stretch;
+        display:flex;
+        width:100%;
+        height:13%;
+        background-color: lightBlue;
+
+
+      }
+
+      #msnBox {
+        display:flex;
+        width: 100%;
+        height:100%;
+      }
+
+      #textArea {
+        display:flex;
+        width:85%;
+        height:90%;
+
+      }
+
+      #bsend {
+        display:flex;
+        width:15%;
+        height:100%;
+
+      }
+
+   }
+
+ @media screen and (orientation:landscape) and (min-width: 620px) {
+
+         #top {
+           display:flex;
+           width:100%;
+           flex-direction: row;
+           min-height:10%;
+           padding-top: 3px;
+           padding-bottom: 3px;
+           align-self: flex-start;
+
+         }
+
+         .topButtons {
+           display:flex;
+           width:8%;
+           height:100%;
+           align-items: center;
+           justify-content: space-around;
+           border-radius: 50%;
+         }
+
+
+         .topButtons:active {
+                   transform: scale(0.85);
+               }
+
+ }
+
