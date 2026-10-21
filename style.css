@@ -36,17 +36,18 @@
     z-index: 1;
     justify-content: flex-start;
     align-items: center;
+  
   }
 
   #divHeroText {
     display:flex;
     flex-direction: column;
-    width:50%;
+    width:40%;
     height:100%;
     background-color: rgb(2, 13, 58);
-    z-index: 1;
-    justify-content: flex-start;
+   
     align-items: center;
+    padding:1rem;
   }
 
 p {
@@ -61,29 +62,28 @@ p {
   }
 
   #divHeroText button {
-        color:rgb(10, 18, 103);
+        color:rgb(9, 14, 67);
         font-size: 30px;
         padding:1rem;
-        background-color: aqua;
+        background-color: rgb(174, 221, 237);
         border-radius: 10px;
    }
   
   #divHeroText button:hover {
         transform: scale(0.98);
-        background-color: rgb(12, 162, 162);
+        background-color: rgb(79, 111, 184);
    }
 
   #divHeroImg {
     display:flex;
-    max-width:100%;
+    width:60%;
     height:100%;
-    z-index: 1;
   }
 
   #divHeroImg img {
     display:flex;
-    width:100%;
-    height:100%;
+    max-width:100%;
+    height:auto;
     display: block;
   }
 
@@ -1204,7 +1204,7 @@ justify-content:
 
 /* This is a single-line comment ////////////////////////////////tela cel 416 x 760px////////////////////////////////////////*/
    /* @media screen and (max-width: 416px) { */
-   @media screen and (max-width: 416px) {
+   @media screen and (max-width: 767px) {
      html {
        height:100%;
        width:100%;
@@ -1264,6 +1264,28 @@ justify-content:
         justify-content: flex-start;
         align-items: center;
       }
+
+    #divHeroSection {
+      flex-direction: column;
+      position:absolute;
+      width:100%;
+      min-height:100vh;
+      justify-content: flex-start;
+      align-items: center;
+  
+  }
+
+  #divHeroText {
+    width:100%;
+  }
+
+  #divHeroTilte {
+    width:80%;
+  }
+
+  #divHeroImg {
+    width:100%;
+  }
 
       #divTrilhaSonora {
         display:none;
@@ -2098,7 +2120,7 @@ justify-content:
 
    }
 
- @media screen and (orientation:landscape) and (min-width: 620px) {
+ @media screen and (orientation:landscape) and (min-width: 768px) {
 
          #top {
            display:flex;
