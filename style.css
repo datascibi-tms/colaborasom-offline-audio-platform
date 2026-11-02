@@ -63,7 +63,7 @@ p {
 
   #divHeroText button {
         color:rgb(9, 14, 67);
-        font-size: 30px;
+        font-size: 20px;
         padding:1rem;
         background-color: rgb(136, 215, 244);
         border-radius: 10px;
@@ -941,47 +941,65 @@ p {
   transform:scale(0.85);
 }
 
-  .canalCont {
-    display:flex;
-    flex-direction: column;
-    width:12%;
-    height:80%;
-    align-items: center;
-    justify-content: flex-start;
-    background-color: white;
-  }
+.canalCont {
+  display: flex;
+  flex-direction: column;
+  width: 12vw;
+  height: 80%;
+  align-items: center;
+  justify-content: space-between; /* Distribui os elementos perfeitamente do topo ao fundo */
+  background-color: white;
+  padding: 10px 5px; /* Dá um leve espaçamento interno para os itens não colarem nas bordas */
+  box-sizing: border-box; /* Garante que o padding não quebre a largura de 12% */
+}
 
- h1 {
-   display:flex;
-   font-size: 90%;
-   color: black;
-   align-self: center;
- }
+h1 {
+  font-size: 16px; /* Tamanho fixo legível para o título */
+  color: black;
+  margin: 0;
+  text-align: center;
+}
 
- .menus {
-   display:flex;
-   width:100%;
-   height:15%;
-   align-items: center;
- }
+.menus {
+  width: 100%;
+  height: 25px; /* Altura fixa ideal para caixas de seleção (select) */
+  font-size: 14px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
 
- .playBots {
-   display:flex;
-   width:100%;
-   height:50%;
-   background-color: #678EFA;
-   color:black;
-   align-items: center;
-   justify-content: center;
-   font-size:200%;
-   touch-action: manipulation;
- }
+.play-bots {
+  display: flex;
+  flex-shrink: 0;
+  width: 100%;
+  height: 80px; /* Altura fixa excelente para clique no computador e toque no celular */
+  background-color: #678EFA;
+  color: black;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px; /* Texto grande e visível dentro do botão */
+  font-weight: bold;
+  touch-action: manipulation;
+  border-radius: 10px;
+  border: none; /* Remove a borda padrão feia de botões */
+  cursor: pointer; /* Transforma a seta do mouse na mãozinha de clique */
+}
 
+.play-bots:hover {
+  transform: scale(0.95);
+  background-color: #193175;
+  color: white; /* Muda o texto para branco ao passar o mouse para dar melhor contraste */
+}
 
+.play-bots:active {
+  transform: scale(0.90);
+  background-color: #89a6f5;
+}
+
+/* Estilização extra para o seu Slider não quebrar o layout */
 .sliders {
-  display:flex;
-  width:100%;
-  height:10%;
+  width: 100%;
+  margin: 5px 0;
 }
 
 #metroDiv {
@@ -1089,7 +1107,7 @@ background-color: red;
  transform: scale(0.70);
 }
 
-#salvaRecordBtn: {
+#salvaRecordBtn {
 background-color: white;
 }
 
@@ -1169,7 +1187,7 @@ display:flex;
 width:10%;
 height:100%;
 align-items: center;
-justify-content:
+justify-content: center;
 }
 
 .sendIcon {
