@@ -1,19 +1,18 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+}
+
  html { height:100%; }
 
     body {
-        height: 100%;
         width:100%;
         display:flex;
         position:fixed;
         flex-direction: column;
         min-height: 100vh;
-        padding-left: 5px;
-        padding-right: 5px;
-        padding-top: 0;
-        margin-top: 0;
-        padding-bottom: 0;
-        margin-bottom: 0;
-        background-color: rgb(2, 13, 58);
+        background-color: rgb(218, 219, 223);
     }
 
 
@@ -28,68 +27,53 @@
     justify-content: flex-start;
     align-items: center;
   }
-
-  #divHeroSection {
-    display:flex;
-    position:absolute;
-    width:100%;
-    height:100%;
-    background-color: white;
-    z-index: 1;
-    justify-content: flex-start;
-    align-items: center;
   
-  }
-
-  #divHeroText {
-    display:flex;
-    flex-direction: column;
-    width:40%;
-    height:100%;
-    background-color: rgb(2, 13, 58);
-   
-    align-items: center;
-    padding:1rem;
-  }
-
-p {
-     color:rgb(208, 239, 240);
-     font-size: 30px;
+ .hero-section {
+  position:relative;
+  width: 100%;
+  height: 100%;
+  /* O gradiente vem primeiro para ficar por cima da imagem */
+  background-image: 
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), 
+    url("./imgs/imgsite/hero1.png");
+  background-size: cover;
+  background-position: center;
+  /* Alinhamento e cor do texto */
+  display: flex;
+  align-items: flex-start;
+  padding-top: 3rem;;
+  justify-content: center;
+  color: #ffffff;
 }
 
- #divHeroText h1 {
-       color:rgb(208, 239, 240);
-       font-size: 4rem;
-       padding:1rem;
-  }
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width:40%;
+  height: 40%;
+  gap: 1rem;
+}
 
-  #divHeroText button {
-        color:rgb(9, 14, 67);
-        font-size: 20px;
-        padding:1rem;
-        background-color: rgb(136, 215, 244);
-        border-radius: 10px;
-   }
-  
-  #divHeroText button:hover {
-        transform: scale(0.98);
-        background-color: rgb(130, 160, 231);
-   }
+.hero-text h1 {
+  color:white;
+  font-size: 6rem;
+}
 
-  #divHeroImg {
-    display:flex;
-    width:60%;
-    height:100%;
-  }
+.hero-text h2 {
+  text-align: center;
+  font-size: 2rem;
+}
 
-  #divHeroImg img {
-    display:flex;
-    max-width:100%;
-    height:auto;
-    display: block;
-  }
+.hero-section button {
+  width:170px;
+  height: 60px;
+  border-radius: 9px;
+  background-color: #63bff5;
+  font-size: 1.5rem;
+}
 
-  #divTrilhaSonora {
+#divTrilhaSonora {
     display:none;
     position:absolute;
     flex-direction: column;
