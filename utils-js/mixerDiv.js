@@ -1,9 +1,5 @@
-import Canal from './Canal.js';
-import optionsSelect from './options.js';
 
-
-
-export function criaDivCanais(arrTeclas, arrOptions, conteiner, nCanais) {
+export function mixerDiv(arrTeclas, arrOptions, conteiner, arrayCanais) {
 
   //array com os nomes das teclas que estarão nos botões de cada canal na interface
 const teclasBots = ["a", "s", "d", "f", "g", "h", "j", "k","z","x", "c", "v","b", "n", "m", "Bases"];
@@ -28,3 +24,4 @@ const canaisDiv = arr.map((item,index) => `
                  ${conteiner}`);
 
 }
+

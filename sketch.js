@@ -14,6 +14,13 @@ audio25, audio26, audio27, audio28, audio29, audio30, audio31, audio32;
 
 var audio1b;
 
+
+
+
+
+
+
+
 let
 //////audios ativados por keypress- a-h e z-,     16 canais - 1-16
 playSound1, playSound2, playSound3, playSound4, playSound5, playSound6, playSound7, playSound8,
